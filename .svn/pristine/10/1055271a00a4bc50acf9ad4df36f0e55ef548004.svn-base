@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>软文分享详细页</title>
+		<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+        <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script src="../js/ajax.fn.js"></script>
+		<script src="../js/params.js"></script>
+		<link rel="stylesheet" href="css/stylesheets/style.css">
+		<link rel="stylesheet" href="fonts/font/iconfont.css">
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.background{
+				width: 100%;
+				background: url(img/background.jpg);
+			}
+			.content{
+				width: 1050px;
+				height: auto;
+				min-height: 1500px;
+				margin: auto;
+				text-align: center;
+			}
+			.content h5{
+				color: #666;
+			}
+			.content h6{
+				color:#8c908f;
+			}
+			.audio{
+				width: 625px;
+				height: 180px;
+				margin: auto;
+				background: #eeeeee;
+			}
+			.butterfly1{
+				width: 205px;
+				height: 220px;
+				float: right;
+				position: relative;
+				top: -230px;
+				right: 110px;
+				background: url(img/butterfly1_03.png);
+			}
+			.main{
+				text-align: left;
+				margin-top: 60px;
+				width: 100%;
+				height: auto;
+				min-height: 400px;
+				
+			}
+			.main p{
+				font-size: 16px;
+			}
+			.main p:first-child{
+				color: #1d71b7;
+			}
+			.main img{
+				width: 100%;
+			}
+			
+			.butterfly2{
+				width: 215px;
+				height: 130px;
+				background: url(img/butterfly2_07.png);
+				float: right;
+				position: relative;
+				left: 110px;
+			}
+			.grant{
+				width: 624px;
+				height: 135px;
+				background: #eeeeee;
+				margin: 150px auto;
+				position: relative;
+				top: -36px;
+				padding-top:25px ;
+				padding-left:50px;
+			}
+			.grant h4{
+				text-align: left;
+			}
+			.grant_detail{
+				width: 570px;
+				height: 55px;
+				text-align: left;
+				overflow: hidden;
+			}
+			.grant_detail button{
+				width: 50px;
+				height: 25px;
+				background: #33443b;
+				border: none;
+				-webkit-border-radius:;
+				-moz-border-radius:;
+				border-radius:10px;
+				color: #ffffff;
+				float: left;
+				outline: none;
+			}
+			.grant_detail img{
+				width: 25px;
+				height: 25px;
+				float: left;
+				margin-left: 5px;
+			}
+			.toshare{
+				width: 624px;
+				height: 60px;
+				padding-top: 16px;
+				padding-left: 45px;
+				margin: -180px auto;
+				text-align: left;
+				color: #33443b;
+				font-size: 20px;
+			}
+
+			.like{
+				display: block;
+				width: 125px;
+				height: 35px;
+				padding-left: 5px;
+				color: inherit;
+				border: 1px solid #33443b;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				line-height: 35px;
+			}
+
+			a:focus, a:hover{
+				color:inherit;
+			}
+			.like .iconfont{
+				font-size: 20px;
+				text-shadow: 3px -0.5px #909e98;
+			}
+			.like span{
+				float: left;
+				font-size: 16px;
+				font-weight:bold;
+				margin-left: 5px;
+			}
+			.like_count{
+				display: block;
+				width: 50px;
+				height: 30px;
+				border-left: 1px solid #33443b ;
+				padding-left: 10px;
+			}
+			.toshare_Opt{
+				width: 225px;
+				height: 35px;
+				float: right;
+				position: relative;
+				top: -35px;
+				font-size:20px ;
+				font-weight: bold;
+				line-height: 35px;
+			}
+			.toshare_Opt a{
+				display: inline-block;
+				color: inherit;
+				width: 106px;
+				height: 35px;
+				text-decoration: none;
+			}
+			.toshare_Opt span{
+				margin-left: 10px;
+			}
+
+			.comment{
+				width: 688px;
+				height: auto;
+				margin: 200px auto;
+				text-align: left;
+			}
+			comment h4{
+				text-align: left;
+				color: #666666;
+			}
+			.toComment{
+				width: 100%;
+				height: 125px;
+				margin-top: 25px;
+			}
+			.toComment .text{
+				width: 100%;
+				height: 92px;
+				background: #ffffff;
+				padding: 5px;
+				color: #d5d5d5;
+				outline: none;
+			}
+			.report{
+				width: 100%;
+				height: 32px;
+				line-height: 32px;
+			}
+			.report span{
+				color:#d5d5d5 ;
+			}
+			.report span span{
+				color: #a7a7a7;
+			}
+
+			.report a {
+				display:block ;
+				width: 50px;
+				font-size: 16px;
+				font-weight: bold;
+				text-decoration: none;
+				color: #7b9a8a;
+				float: right;
+			}
+
+			.wonderful_comment{
+				width: 100%;
+				min-height: 88px;
+				background: #ffffff;
+				margin-top: 20px;
+			}
+			.comment_reply_block{
+				width: 100%;
+				height: auto;
+				max-height: 280px;
+				min-height: 88px;
+				padding: 20px 5px 20px 5px;
+				border: 1px solid #cccccc;
+				display: flex;
+			}
+			.comment_reply_block div{
+				margin-left: 5px;
+			}
+
+			.wonderful_comment .user_pic{
+				width: 60px;
+				height: 48px;
+			}
+			.wonderful_comment .user_pic div{
+				width: 100%;
+				height: 100%;
+			}
+			.wonderful_comment .user_pic img{
+				width: 100%;
+				height: 100%;
+			}
+			.comment_content{
+				width: 460px;
+				min-height: 48px;
+				max-height: 240px;
+				margin-left: 20px !important;
+			}
+			.comment_content span{
+				display: block;
+			}
+			.comment_content span:first-child{
+				font-weight: bold;
+			}
+			.comment_content p{
+				word-wrap: break-word;
+			}
+			.reply{
+				width: 120px;
+				height: 48px;
+				text-align: right;
+				line-height: 88px;
+			}
+			.reply a{
+				text-decoration: none;
+				color: #000;
+			}
+			.wonderful_comment .comment_reply_block:last-child  .reply a{
+				color: #7b9a8a;
+			}
+			.toReply{
+				width: 100%;
+				height: 70px;
+				background: #f1f1f1;
+				margin-top: 20px;
+			}
+			.toReply_text{
+				width: 100%;
+				height: 50px;
+				padding: 5px;
+				color: #ababab;
+				outline: none;
+			}
+			.toReply_text:empty:before {
+				content: attr(placeholder);
+				display: block;
+				color: #ababab;
+			}
+			.toReply_text:focus:before {
+				content:none;
+			}
+			.toReply a{
+				color: #7b9a8a;
+				text-decoration: none;
+				float: right;
+			}
+
+			.to_pay{
+				margin-top:-920px;
+				position: absolute;
+				z-index: 999;
+				width: 625px;
+				height: 586px;
+				background:#ffffff;
+			}
+			.to_pay_user{
+				width: 100%;
+				height: 197px;
+				background: url("img/pay-bg_03.png");
+				text-align: center;
+			}
+			#exit{
+				float: right;
+				width: 19px;
+				height: 19px;
+				position: relative;
+				top:-50px;
+				right: 20px;
+			}
+			.to_pay_user div{
+				width: 200px;
+				height: 100%;
+				margin: 20px auto;
+				text-align: center;
+			}
+			.to_pay_user div img{
+				width: 100px;
+				height: 100px;
+			}
+
+			.to_pay_user div span{
+				display: block;
+				font-size: 24px;
+				margin-top: 25px;
+			}
+			.money{
+				width: 518px;
+				height: 180px;
+				margin: auto;
+				background: #eeeeee;
+				line-height: 180px;
+			}
+			.money p {
+				width: auto;
+				height: 30px;
+				font-size: 16px;
+
+			}
+			.money p span{
+				font-size: 30px;
+				line-height: 30px;
+			}
+			.money p span:first-child{
+				font-size: 16px;
+				margin-top:-15px;
+			}
+			.pay_opt{
+				width: 404px;
+				height: 60px;
+				margin: 20px auto;
+				text-align: center;
+			}
+			.pay_opt span{
+				display: block;
+			}
+			.pay_opt span:first-child{;
+				float: left;
+				font-size: 16px;
+				color: #333333;
+			}
+			.pay_opt div{
+
+				margin:  auto;
+				position: relative;
+				top: 24px;
+				width:88px;
+				height: 30px;
+				line-height: 24px;
+
+			}
+			.pay_opt div span:first-child{
+				font-size: 24px !important;
+				color: #33443b;
+			}
+
+			.to_pay_bt{
+				width: 166px;
+				height: 71px;
+				background: url("img/pay_now_03.png");
+				margin: auto;
+			}
+			.pay_pic{
+				position: absolute;
+				z-index: 999;
+				margin-top: -800px;
+				width: 383px;
+				height: 368px;
+				background: #ffffff;
+			}
+			#exit1{
+				float: right;
+				width: 19px;
+				height: 19px;
+				position: relative;
+				top:10px;
+				right: 20px;
+			}
+			.erweima{
+				width: 182px;
+				height: 318px;
+				margin: 40px auto;
+			}
+			.erweima h4{
+				color: #333333;
+			}
+			.erweima h6{
+				margin-top: 40px;
+				font-size: 16px;
+			}
+			.erweima h6 span{
+				color: #93b2d6;
+			}
+            @media only screen and (max-width: 1050px) {
+                .content{
+                    width: 1020px;
+                }
+            }
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div class="background">
+			<div class="content">
+				<h1>{{title}}</h1>
+				<h5>阅读<span>xxx</span>评论<span>xxx</span>喜欢<span>xxx</span></h5>
+				<h6>标签：<span ng-bind="story"></span></h6>
+				<div class="audio">
+					
+					 <div class="bo">
+					
+					      <div class="bo1">
+					
+					       <div id="player">
+					
+								<div class="cover"></div>
+					
+								<div class="ctrl">
+					
+								<div class="tag">
+					
+								<strong>Title</strong>
+					
+								<span class="artist">Artist</span>
+					
+								<span class="album">Album</span>
+					
+							</div>
+					
+							<div class="control">
+					
+								<div class="left">
+					
+									<div class="rewind icon"></div>
+					
+									<div class="playback icon"></div>
+					
+									<div class="fastforward icon"></div>
+					
+								</div>
+					
+								<div class="volume right">
+					
+									<div class="mute icon left"></div>
+					
+									<div class="slider left">
+					
+										<div class="pace"></div>
+					
+									</div>
+					
+								</div>
+					
+							</div>
+					
+							<div class="progress">
+					
+								<div class="slider">
+					
+									<div class="loaded"></div>
+					
+									<div class="pace"></div>
+					
+								</div>
+					
+								<div class="timer left">0:00</div>
+					
+								<div class="right">
+					
+									<div class="repeat icon"></div>
+					
+									<div class="shuffle icon"></div>
+					
+								</div>
+					
+							</div>
+					
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+			
+				<div class="butterfly1">
+				</div>
+		<div class="main">
+			<p>xxxxxxxx</p>
+			<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+		</div>			
+		
+		<div class="butterfly2">
+			
+		</div>
+		<div class="grant">
+			<h4>你来啦，我在等你</h4>
+			<div class="grant_detail">
+				<button  ng-click="tog1()">赏赐</button>
+				<img class="img-circle" src="../images/ad_yuetu.jpg"/>
+			</div>
+		</div>
+
+
+
+
+		<div class="to_pay" id="toPay" ng-show="isShow1">
+			<div class="to_pay_user">
+				<div id="exit" ng-click="tog1()"><span class="iconfont icon-guanbi"></span></div>
+				<div>
+					<img class="img-circle"  src="../images/ad_yuetu.jpg" />
+					<span>你来啦，我在等你</span>
+
+				</div>
+			</div>
+
+			<div class="money">
+				<p><span>打赏金额：</span><span>2.00</span></p>
+			</div>
+
+			<div class="pay_opt">
+				<span >选择支付方式：</span>
+				<div>
+					<span class="iconfont icon-weixin"></span><span> 微信支付</span>
+				</div>
+
+			</div>
+			<div class="to_pay_bt" ng-click="tog2()"></div>
+		</div>
+
+
+		<div class="pay_pic" id="payPic" ng-show="isShow2">
+			<div id="exit1" ng-click="tog3()"><span class="iconfont icon-guanbi"></span></div>
+			<div class="erweima">
+				<h4>微信扫码支付</h4>
+				<img src="img/erweima_07.jpg" />
+				<h6>扫码金额：<span>2.00</span></h6>
+			</div>
+		</div>
+
+
+
+		<div class="toshare">
+			<a href="" class="like" ng-click="like()">
+				<span class="iconfont icon-xihuan"></span><span>喜欢</span>
+				<span class="like_count" ng-bind="likeNum"></span>
+
+			</a>
+			<div class="toshare_Opt">
+				<a href="#"><span class="iconfont icon-icon">分享到微博</span></a>
+				<a href="#"><span class="iconfont icon-weixin1">分享到微信</span></a>
+
+			</div>
+		</div>
+		<div class="comment">
+			<h4><span>精选评论</span>（<span>66</span>）</h4>
+			<div class="toComment" >
+				<div class="text" contenteditable="true">畅谈你的想法...</div>
+				<div class="report">
+					<span>还可以输入<span>500</span>个字符</span>
+					<a href="#">发表</a>
+				</div>
+			</div>
+
+			<div class="wonderful_comment" >
+				<div class="comment_reply_block" ng-repeat="value in replyText">
+					<div class="user_pic">
+						<div >
+							<img src="../images/ad_yuetu.jpg"/>
+						</div>
+					</div>
+					<div class="comment_content">
+						<span>xxxxxx</span>
+						<span>1.2.3.4</span>
+						<p>{{value}}</p>
+					</div>
+					<div class="reply">
+						<a href=""  ng-click="reply()">回复</a>
+					</div>
+				</div>
+			</div>
+
+			<!--回复-->
+			<div class="toReply" ng-show="isReply">
+				<div class="toReply_text" contenteditable="true" placeholder ="请输入..." id="toRep" ng-click="edit()">
+					请输入...
+				</div>
+				<a href="" ng-click="submit()">提交</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+        <!--精彩评论模板-->
+		<script type="text/html" id="w_comment">
+            <div class="wonderful_comment" ng-repeat="value in replyText">
+                <div class="comment_reply_block">
+                    <div class="user_pic">
+                        <img src="../images/ad_yuetu.jpg"/>
+                    </div>
+                    <div class="comment_content">
+                        <span>xxxxxx</span>
+                        <span>1.2.3.4</span>
+                        <p>{{value}}</p>
+                    </div>
+                    <div class="reply">
+                        <a href="">回复</a>
+                    </div>
+                </div>
+            </div>
+		</script>
+
+        <!--回复内容模板-->
+        <script type="text/html" id="">
+			<div class="comment_reply_block">
+				<div class="user_pic">
+					<img src="../images/ad_yuetu.jpg"/>
+				</div>
+				<div class="comment_content">
+					<span>xxxxxx</span>
+					<span>1.2.3.4</span>
+					<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+				</div>
+				<div class="reply">
+					<a href="#">回复</a>
+				</div>
+			</div>
+        </script>
+
+
+        <!--回复模板-->
+        <script type="text/ng-template" id="to_reply">
+            <div class="toReply">
+                <div class="toReply_text" contenteditable="true">
+                    请输入...
+                </div>
+                <a href="#">提交</a>
+            </div>
+        </script>
+
+	<script src="js/jquery-ui-1.8.17.custom.min.js"></script>
+		<script src="js/script.js"></script>
+		<script>
+
+
+
+			//立即支付div水平居中
+			var toPay = document.getElementById("toPay");
+            var payPic = document.getElementById("payPic");
+			var w1  =  toPay.offsetWidth;
+			var w3 = payPic.offsetWidth;
+			var w2 = document.getElementsByClassName("content").item(0).offsetWidth;
+
+			toPay.style.marginLeft = w2/2-w1/2+"px";
+            payPic.style.marginLeft = w2/2-w3/2+"px";
+
+
+
+
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope,$http) {
+
+			    $scope.isShow1 = false;
+                $scope.isShow2 = false;
+                $scope.likeNum = 0;
+                $scope.isReply = false;
+                $scope.replyText = ["sss"]
+				$scope.likeCl = 0;
+
+                option={
+                    url:addr+"index.php/Home/From/Soft_details",
+                    data:{"heart_solular_id":4},
+                    succ:function(data){
+                        console.log(data)
+						$scope.story = data.aaaa.heart_story_id;
+                        $scope.title = data.aaaa.heart_content_title;
+                        alert($scope.story);
+					}
+                }
+
+                getData(option);
+
+				$scope.tog1 = function(){
+                    $scope.isShow1 = ! $scope.isShow1;
+				}
+				$scope.tog2 = function(){
+                    $scope.isShow1 = ! $scope.isShow1;
+                    $scope.isShow2 = ! $scope.isShow2;
+				}
+                $scope.tog3 = function(){
+                    $scope.isShow2 = ! $scope.isShow2;
+                }
+				$scope.like = function(){
+                    if($scope.likeCl == 0){
+                        $scope.likeNum++;
+                        $scope.likeCl++;
+					}else if($scope.likeNum>0){
+                        $scope.likeNum--;
+                        $scope.likeCl = 0;
+					}
+
+				}
+				$scope.reply = function(){
+                    $scope.isReply = !$scope.isReply;
+				}
+				$scope.submit = function(){
+					var editDiv = document.getElementById("toRep");
+					var str = editDiv.textContent;
+                    $scope.replyText.push(str);
+                    editDiv.innerHTML = "";
+                    $scope.isReply = !$scope.isReply;
+				}
+
+				$scope.edit = function(){
+                    var editDiv = document.getElementById("toRep");
+                    editDiv.innerHTML = "";
+				}
+
+			});
+
+
+
+
+			
+			
+		</script>
+			
+	</body>
+</html>

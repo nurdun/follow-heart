@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" contect="http://www.webqin.net">
+<title>忘记密码</title>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        
+        <script src="js/color.js"></script>
+    <script>
+       var app = angular.module('myApp', []);
+       app.controller('registerCtrl', function($scope) {
+       	     
+       });
+    </script>
+</head>
+
+<body>
+<div class="head"></div>
+  <div class="content" ng-app="myApp" ng-controller="registerCtrl">
+   <div class="web-width" style="width: 640px; margin: auto; font-size: 16px;">
+   		<p>找回密码</p>
+     <div class="for-liucheng">
+      <div class="liulist for-cur"></div>
+      <div class="liulist for-cur"></div>
+      <div class="liulist for-cur"></div>
+      <div class="liulist"></div>
+      <div class="liutextbox">
+       <div class="liutext for-cur"><em>1</em><a href="index.html"><strong>填写用户名</strong></a></div>
+       <div class="liutext for-cur"><em>2</em><a href="forgetPwd2.html"><strong>验证身份</strong></a></div>
+       <div class="liutext for-cur"><em>3</em><strong>设置新密码</strong></div>
+       <div class="liutext"><em>4</em><a href="forgetPwd4.html"><strong>完成</strong></a></div>
+      </div>
+     </div><!--for-liucheng/-->
+     <form action="forgetPwd4.html" method="get" class="forget-pwd" name="registerForm" novalidate>
+
+       <dl>
+        <dt>设置新密码：</dt>
+        <dd><input type="password"  ng-model="password" ng-minlength="6"
+                    ng-maxlength="12" name="password" id="password" required /></dd>
+                     <p style="float:left;">
+                    <span class="tishi" ng-show="registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.minlength">密码长度不小于6</span>
+                        <span ng-show="registerForm.password.$error.maxlength">密码长度不超过12</span>
+                    </span>
+                  </p>
+        <div class="clears"></div>
+       </dl>
+       <dl>
+        <dt>确认新密码：</dt>
+        <dd><input type="password"  ng-model="passwordagain" name="passwordagain"
+                    id="passwordagain" required/></dd>
+                     <p style="float:left;">
+                    <span  class="tishi"  ng-show="registerForm.password.$valid">
+                        <span ng-show="passwordagain!=password">两次密码输入不一致</span>
+                    </span>
+                  </p>
+        <div class="clears"></div>
+       </dl>
+       <div class="subtijiao"><button style="border: 0 !important;"><img src="img/images/pic_03.png"></button></div>
+      </form><!--forget-pwd/-->
+   </div><!--web-width/-->
+  </div><!--content/-->
+  
+</body>
+</html>

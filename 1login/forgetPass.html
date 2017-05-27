@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="../js/ajax.fn.js"></script>
+    <script src="../js/params.js"></script>
+    <link type="text/css" href="../1login/css/css.css" rel="stylesheet" />
+
+</head>
+<style>
+	
+</style>
+<body  onload="createCode()" >
+ <div class="head"></div>
+  <div class="content">
+  	
+   <div class="web-width" style="width: 640px; margin: auto; font-size: 16px;">
+   	<p>找回密码</p>
+     <div class="for-liucheng">
+      <div class="liulist for-cur"></div>
+      <div class="liulist"></div>
+      <div class="liulist"></div>
+      <div class="liulist"></div>
+      <div class="liutextbox">
+          <div class="liutext for-cur" ng-click="tog()"><em id="setNameEm">1</em><a href="" ><strong id="setName">填写用户名</strong></a></div>
+       <div class="liutext"  ng-click="tog1()"><em id="setIdEm">2</em><a href=""><strong  id="setId">验证身份</strong></a></div>
+       <div class="liutext" ng-click="tog2()"><em id="setPassEm">3</em><a href="" ><strong id="setPass">设置新密码</strong></a></div>
+       <div class="liutext" ng-click="tog3()"><em id="compEm">4</em><a href="" ><strong id="comp">完成</strong></a></div>
+      </div>
+     </div><!--for-liucheng/-->
+     <form class="forget-pwd" ng-Show="isShow1" >
+       <dl>
+        <dt>用户名称：</dt>
+        <dd><input type="text" ng-model="num" /></dd>
+         <p class="tips">请输入您的邮箱号/手机号</p>
+        
+       </dl> 
+       <dl>
+        <dt>验证码：</dt>
+        <dd>
+         <input type="text" class="yzm"  id="inputCode"/>
+         <div class="yanzma">
+          
+          <input type="text"  id="checkCode"  class="unchanged" style="width: 80px"  readonly/> <a href="javascript:;" id="code" onclick="createCode()" >换一换</a> 
+         </div>
+        </dd>
+        <div class="clears"></div>
+       </dl>
+       <div class="subtijiao" ng-click="tog1()"><button style="border: 0 !important;"><img src="../img/images/tijiao1_03.png" onclick="validate()"></button></div>
+      </form><!--forget-pwd/-->
+   </div><!--web-width/-->
+   <form  class="forget-pwd" ng-Show="isShow2">
+     <dl>
+         <dt>选择验证方式：</dt>
+         <dd>
+             <select class="selyz">
+                 <option value="0">已验证手机</option>
+                 <option value="1">已验证邮箱</option>
+             </select>
+         </dd>
+         <div class="clears"></div>
+     </dl>
+
+     <dl class="sel-yzsj">
+         <dt>已验证手机：</dt>
+         <dd><input type="text" value="1851****517" readonly  /></dd>
+         <div class="clears"></div>
+     </dl>
+     <dl class="sel-yzyx">
+         <dt>已验证邮箱：</dt>
+         <dd><input type="text" value="764852123@qq.com" readonly /></dd>
+         <div class="clears"></div>
+     </dl>
+     <dl>
+         <dt>手机校验码：</dt>
+         <dd><input type="text" class="tel" /> <button class="get">获取短信验证码</button></dd>
+         <div class="clears"></div>
+     </dl>
+     <div class="subtijiao" ng-click="tog2()"><button style="border: 0 !important;"><img src="../img/images/tijiao1_03.png"></button></div>
+ </form><!--forget-pwd/-->
+
+
+ <form  class="forget-pwd" name="registerForm" novalidate  ng-Show="isShow3">
+
+     <dl>
+         <dt>设置新密码：</dt>
+         <dd><input type="password"  ng-model="password" ng-minlength="6"
+                    ng-maxlength="12" name="password" id="password" required /></dd>
+         <p style="float:left;">
+                    <span class="tishi" ng-show="registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.minlength">密码长度不小于6</span>
+                        <span ng-show="registerForm.password.$error.maxlength">密码长度不超过12</span>
+                    </span>
+         </p>
+         <div class="clears"></div>
+     </dl>
+     <dl>
+         <dt>确认新密码：</dt>
+         <dd><input type="password"  ng-model="passwordagain" name="passwordagain"
+                    id="passwordagain" required/></dd>
+         <p style="float:left;">
+                    <span  class="tishi"  ng-show="registerForm.password.$valid">
+                        <span ng-show="passwordagain!=password">两次密码输入不一致</span>
+                    </span>
+         </p>
+         <div class="clears"></div>
+     </dl>
+     <div class="subtijiao" ng-click="tog3()"><button style="border: 0 !important;"><img src="../img/images/tijiao1_03.png"></button></div>
+ </form><!--forget-pwd/-->
+
+
+     <div class="successs" ng-Show="isShow4">
+         <div><a href="#/home"><img src="../img/images/succ_03.png"></a></div>
+     </div>
+     </div><!--web-width/-->
+   
+  </div><!--content/-->
+
+ 
+</body>
+
+	<script type="text/javascript">
+		var code ; //在全局定义验证码   
+    //产生验证码
+    function createCode(){
+         code = "";
+         var codeLength = 4;//验证码的长度
+         var checkCode = document.getElementById("checkCode");
+         var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+         'S','T','U','V','W','X','Y','Z');//随机数
+         for(var i = 0; i < codeLength; i++) {//循环操作
+            var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）
+            code += random[index];//根据索引取得随机数加到code上
+        }
+        checkCode.value = code;//把code值赋给验证码
+    }
+    //校验验证码
+    function validate(){
+        var inputCode = document.getElementById("inputCode").value.toUpperCase(); //取得输入的验证码并转化为大写
+        if(inputCode.length <= 0) { //若输入的验证码长度为0
+           // alert("请输入验证码！"); //则弹出请输入验证码
+        }
+        else if(inputCode != code ) { //若输入的验证码与产生的验证码不一致时
+            alert("验证码输入错误！@_@"); //则弹出验证码输入错误
+            createCode();//刷新验证码
+            document.getElementById("inputCode").value = "";//清空文本框
+        }
+        else { //输入正确时
+            alert("^-^"); //弹出^-^
+        }
+    }
+
+
+    </script>
+
+</html>

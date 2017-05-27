@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background-image: url("{{pressure}}img/bg.png");
+			}
+			*{
+				padding: 0 0;
+				margin: 0 0;
+				
+				}
+			.top{
+				height: 100px;
+			}
+			.beijing{
+				width: 100%;
+				height: 900px;
+				}
+			.nei{
+				color: royalblue;
+				text-align: center;
+				font-size: 35px;
+				border-bottom:2px solid #9ec2d8;
+				height: 100px;
+				line-height: 120px;
+				width:220px;
+				float: initial;
+				margin: 0 39% 0 39%;
+				}
+			.wai{
+				height: 100PX;
+				border-bottom:2px solid #D9E1DE;
+				float: left;
+				width: 100%;
+				}
+			
+			.zong{
+				margin-left: 25%;
+				margin-right: 25%;
+				width:50% ;
+				}
+			.tu{
+				width: 70px;
+				height: 100px;
+				margin: 20px 25px 40px 25px;
+				float: left;
+				}
+			.tu>img{
+				width: 100%;height: 100%;
+				border-radius: 15px;
+				}
+			.mid{height: 170px;
+				
+				margin-left: 25%;
+				 margin-right: 25%;
+				 }
+			.xingxi{
+				height: 150px;
+				border-bottom:2px solid #D9E1DE;
+				}
+			.biaoti{
+				font-size: 25px;
+				padding-top: 15px;
+				}
+			.shijian{
+				padding-top: 70px;
+				color: #6f6f6f;
+				}
+			.baicai p{
+				font-size: 25px;
+				margin-bottom: 20px;
+				
+			}	
+			.baicai{
+				text-align: center;
+			}
+			.tian{float: initial;
+				text-align: left;
+				font-size: 12px;
+				color: #6F6F6F;
+			}
+			#wrapper {
+			    width: 1000px;
+			    height: 450px;
+			    margin: -70px 0 0 -525px;
+			    position: absolute;
+			    top: 475px;
+			    left: 50%;
+			}
+			#carousel-left,#carousel-right {
+				
+			    width: 500px;
+			    height: 550px;
+			    overflow: hidden;
+			    position: absolute;
+			    top: 65px;
+			    z-index: 1;
+			}
+			#carousel-left {
+			    left: 50px;
+			}
+			#carousel-right {
+			    left: 600px;
+			}
+			#carousel-center {
+			    width: 450px;
+			    height: 500px;
+			    overflow: hidden;
+			    position: absolute;
+			    top: 25px;
+			    left: 300px;
+			    z-index: 2;
+			}
+			.caroufredsel_wrapper {
+			    box-shadow: 0 0 10px rgba( 0, 0, 0, 0.3 );
+			}
+			.caroufredsel_wrapper img {
+			    display: block;
+			    float: left;
+			}
+			#prev,
+			#next {
+			    background: #ccc;
+			    color: #fff;
+			    font-size: 25px;
+			    font-weight: bold;
+			    text-align: center;
+			    text-decoration: none;
+			    text-shadow: 0 1px 2px rgba( 0, 0, 0, 0.6 );
+			    line-height: 26px;
+			    display: block;
+			    width: 30px;
+			    height: 30px;
+			    margin-top: -15px;
+			    position: absolute;
+			
+			    top: 50%;
+			    z-index: 0;
+			}
+			#prev {
+			    left: 20px;
+			}
+			#next {
+			    left: 1000px;
+			}
+			#prev:hover,
+			#next:hover {
+			    background: #bbb;
+			}
+		</style>
+	<script src="http://cdn.bootcss.com/jquery.caroufredsel/6.2.1/jquery.carouFredSel.packed.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="beijing">
+			<div class="top">
+				<div class="zong">
+					<div class="wai">
+						<div class="nei"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mid">
+				
+				<div class="tu"><img src="../0main/img/book4_03.png"/></div>
+				<div class="xingxi">
+					<p  class="biaoti">向无趣运动Say NO</p>
+					<p class="shijian">时间：2016-3 -21</p>
+					<p style="float: right;position: relative;top: -30px;left: -40%;color: #6F6F6F;">标题：乐活 </p>
+				</div>
+			</div>
+			<div class="baicai">
+				<p style="color: #494b4b;">代谢训练</p>
+				<div style="width: 300px;margin:auto;">
+					<div class="tian">9套完整训练计划图，包含了胸，肩，背，退，腹，手臂各部位的常规训练方法及两套代谢训练计划，适合健身房人群参考。</div>
+				</div>
+			</div>
+			
+			
+			<div id="wrapper">
+			    <div id="carousel-left">
+			        <img src="{{pressure}}img/s7.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s1.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s2.jpg" width="400" height="400"/ >
+			        <img src="{{pressure}}img/s3.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s4.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s5.jpg" width="400" height="400"/ >
+			        <img src="{{pressure}}img/s6.jpg" width="400" height="400" />
+			       
+			    </div>
+			    <div id="carousel-center">
+			        <img src="{{pressure}}img/s1.jpg" width="450" height="500"/ >
+			        <img src="{{pressure}}img/s2.jpg" width="450" height="500" />
+			        <img src="{{pressure}}img/s3.jpg" width="450" height="500" />
+			        <img src="{{pressure}}img/s4.jpg" width="450" height="500" />
+			        <img src="{{pressure}}img/s5.jpg" width="450" height="500"/ >
+			        <img src="{{pressure}}img/s6.jpg" width="450" height="500" />
+			        <img src="{{pressure}}img/s7.jpg" width="450" height="500" />
+			    </div>
+			    <div id="carousel-right">
+			        <img src="{{pressure}}img/s2.jpg" width="400" height="400"/ >
+			        <img src="{{pressure}}img/s3.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s4.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s5.jpg" width="400" height="400"/ >
+			        <img src="{{pressure}}img/s6.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s7.jpg" width="400" height="400" />
+			        <img src="{{pressure}}img/s1.jpg" width="400" height="400" />
+			    </div>
+			    <a id="prev" href="#">&lsaquo;</a>
+			    <a id="next" href="#">&rsaquo;</a>
+			</div>
+
+		</div>
+		<script>
+			$(function() {
+			    var $l = $('#carousel-left'),
+			        $c = $('#carousel-center'),
+			        $r = $('#carousel-right');
+			         
+			    $l.carouFredSel({
+			        auto: false,
+			        items: 1,
+			        direction: 'right',
+			        prev: {
+			            button: '#prev',
+			            fx: 'uncover',
+			            onBefore: function() {
+			                setTimeout(function() {
+			                    $c.trigger( 'prev' );
+			                }, 100);
+			            }
+			        },
+			        next: {
+			            fx: 'cover'
+			        }
+			    });
+			    $c.carouFredSel({
+			        auto: false,
+			        items: 1,
+			        prev: {
+			            onBefore: function() {
+			                setTimeout(function() {
+			                    $r.trigger( 'prev' );
+			                }, 100);
+			            }
+			        },
+			        next: {
+			            onBefore: function() {
+			                setTimeout(function() {
+			                    $l.trigger( 'next' );
+			                }, 100);
+			            }
+			        }
+			    });
+			    $r.carouFredSel({
+			        auto: false,
+			        items: 1,
+			        prev: {
+			            fx: 'cover'
+			        },
+			        next: {
+			            button: '#next',
+			            fx: 'uncover',
+			            onBefore: function() {
+			                setTimeout(function() {
+			                    $c.trigger( 'next' );
+			                }, 100);
+			            }
+			        }
+			    });
+			});
+		</script>
+
+		
+		
+	</body>
+	<script language="JavaScript">
+		var f = function(v){  
+          	return function(){  
+               	if(v == 3){//延迟5秒  
+                    	//这里填加时间到后执行的主体函数;  
+                    	$(document).ready(function(){
+                		 var obj = document.getElementById("next"); 
+						obj.click(); 
+                    	});
+                	}else{  
+                	}
+            	};  
+       	};  
+	     for(var i = 1; i < 6; i++){  
+	          setInterval(f(i), i*1000);  
+	          //该函数是核心,同时利用循环执行,1秒一次,直到i=5  
+	     }
+		var DecompressionType = sessionStorage.getItem("DecompressionType");
+		var DecompressionId = sessionStorage.getItem("DecompressionId");
+		if(DecompressionType==2){//运动
+			console.log("当前减压类型为："+DecompressionType)
+			$('.nei').html('Sport/运动')
+			setData("Movement_details",{heart_decompression_id:DecompressionId},bb)//旅游详情
+		}else{//5美食
+			console.log("当前减压类型为："+DecompressionType)
+			$('.nei').html('food/美食')
+			setData("Other_details",{heart_decompression_id:DecompressionId},bb)//旅游详情
+		}
+		
+		console.log("当前减压详情ID为："+DecompressionId)
+		
+		function bb(haha){
+			console.log(haha);
+			if(haha.aa.length>0){
+				$('.tu>img').attr("src",imgaddr+haha.a[0].heart_motion_img)
+				$('.biaoti').html(haha.a[0].heart_motion_img_name)
+				$('.shijian').html(haha.aa[0].heart_motion_time)
+				$('.baicai>p').html(haha.aa[0].heart_motion_name)
+				$('.tian').html(haha.aa[0].heart_motion_introduction)
+			}
+			
+		}
+		</script>
+</html>

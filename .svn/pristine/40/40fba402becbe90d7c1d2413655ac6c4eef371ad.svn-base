@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/top.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<style>
+		/*主体部分*/ 
+		    body{background-image: url('img/read_05.png');background-size: 100%; ;}
+		    .personal{width: 100%;height: 4.1rem; }
+			.read-main{width: 100%;height: 46rem;  }
+			.read-main-new{font-size: 1.1rem;height: 2.1rem;padding:.3rem 0!important;color: #333333!important;display: block;}
+			.read-main-new:visited{background-color: #e7f3f0!important;}
+			.read-main-new:hover{background-color: #e7f3f0!important;}
+			.navbar-right-tu{float:left;border: 0px;}
+			ul li{border-bottom: 3px solid #fff;padding: 0;width: 5%;float: left;}
+			.navbar-right-new{padding-right:1.8rem!important;float: right;}
+			.navbar-right-heat{margin-right: 1.2rem;float: right;text-align: right;padding-left:1.8rem;}
+			.Newest{align-content: center;}
+			.shu{width: 23.5rem;height: 28.9rem;margin: 5.5% auto;text-align: center;}
+			.Newest-img{ width: 90%;height: 94%;position: relative;top: .35rem;}
+			.Newest-image{width: 100%;height: 6%;}
+			.hottest{padding:5.5rem .5rem .5rem 2.5rem;width: 100%;}
+			.hottest img{width: 15%;margin-left: 1.2rem;margin-top: .5rem;}
+			.new{border-bottom:2px solid #4e7a63;}
+		/*尾部*/
+			.read-foot{width: 100%;background-color: #4e7a63;}
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		    <div class="personal">
+                <ul id="myTab">
+                	<li class="navbar-right-tu"><a class="navbar-brand" href="#"><img src="img/read_01.png"/></a></li>
+                	<li class="navbar-right-heat"><a href="#hottest" class="read-main-new heat" data-toggle="tab">热门</a></li>
+                    <li class="navbar-right-new"><a href="#Newest" class="read-main-new new" data-toggle="tab">最新</a></li>
+                    
+                </ul> 
+			</div>
+			 <div id="myTabContent" class="tab-content">
+			    <!--最新 -->
+			   <div class="tab-pane fade in active" id="Newest">
+			        <div class=" container read-main">
+			        	<div class="shu">
+			    		    <a href="#" class="Newest-shu"><img src="img/read_02.png" class="Newest-img"/>
+			                <img src="img/read_03.png" class="Newest-image"/></a>
+			    	    </div>
+			        </div>
+			    </div>    
+			    <!--最热 -->
+			    <div class="tab-pane fade" id="hottest">
+			        <div class="read-main container">
+			        	<div class="hottest">
+			    		    <a href="#"><img src="img/Recommend3_03.png"/></a>
+			    		    <a href="#"><img src="img/Recommend3_05.png"/></a>
+			    		    <a href="#"><img src="img/Recommend3_07.png"/></a>
+			    		    <a href="#"><img src="img/Recommend3_03.png"/></a>
+			    		    <a href="#"><img src="img/Recommend3_05.png"/></a>
+			    		    <a href="#"><img src="img/Recommend3_07.png"/></a>
+			    	    </div>
+			    	</div>
+			    </div>
+			 </div>   
+		<!-- 尾部-->
+		<div class="read-foot"></div>
+		<script>
+			$(".Newest-shu").click(function(){
+				if($(".Newest-img").css("box-shadow")=="none"){
+					$(".Newest-img").css("box-shadow","2px -2px 20px 2px #4e7a63");
+				    $(".Newest-img").css("border","2px solid #4e7a63");		
+				}else{
+					$(".Newest-img").css("box-shadow","none");
+				    $(".Newest-img").css("border","none");
+				}
+					
+			})
+			
+			$('.new').click(function(){
+				$('.new').css('border-bottom','2px solid #4e7a63');
+				$('.heat').css('border-bottom','none');
+			})
+			$('.heat').click(function(){
+				$('.heat').css('border-bottom','2px solid #4e7a63');
+				$('.new').css('border-bottom','none');
+			})
+		</script>
+	</body>
+</html>

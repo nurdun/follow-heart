@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>旅游</title>
+		<style>
+			html{height: 100%;font-size: 20px;}
+			body{background-image: url({{pressure}}../images/bg.png);background-size: 100% 100%;margin: 0 auto;}
+			.travelBox{min-width: 678px;}
+			.title{position: relative;color: #1d71b7;margin-bottom: 80px;}
+			.lines{position: absolute;bottom: 0;}
+			.line{height: 2px;}
+			.gray{background: #cccccc;}
+			.green{background: #1d71b7;}
+			.foot{width: 100%;height: 120px;position: fixed;bottom: 0;background: #4e7a63;}
+			.contents{width:31%;position: relative;padding-top: 30px;margin-right: 3.5%;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;padding-bottom: 60px;float: left;margin-bottom: 60px;}
+			.contents:nth-child(3n){margin-right:0;}
+			.contents .imgBox{width:120px;height: 90px;}
+			.imgBox>img{width: 100%;height: 100%;border-radius: 4px;}
+			.time,.project,.groupA{position: absolute;}
+			.time,.project{left: 150px;}
+			.groupA{right: 0;min-width: 120px;}
+			.time{top: 30px;}
+			.project{top: 60px;}
+			.groupA span{display: inline-block;position: relative;width: 50%;padding-left: 27px;}
+			.groupA span.support{float: left;}
+			.groupA span.discuss{float: right;}
+			.groupA span i{position: absolute;display: block;width: 27px;height: 15px;left: 0;}
+			.support i{background: url({{pressure}}img/yan1.png) no-repeat 0 3px;}
+			.discuss i{background: url({{pressure}}img/xiaoxi.png) no-repeat 8px 3px;}
+			.morePro{color: #1d71b7;letter-spacing: 2px;font-weight: 600;}
+			.next{width: 198px;height:44px;background: url({{pressure}}img/click.png) no-repeat;background-size: 100% 100%;position: fixed;bottom: 230px;right: 180px;}
+		</style>
+	</head>
+	<body>
+		<div class="container travelBox">
+			<div class="row title">
+				<div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 text-center h1 type">
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 lines">
+					<div class="col-md-4 col-sm-4 col-xs-4 line gray"></div>
+					<div class="col-md-4 col-sm-4 col-xs-4 line green"></div>
+					<div class="col-md-4 col-sm-4 col-xs-4 line gray"></div>
+				</div>
+			</div>
+			<div class="content">
+			</div>
+			<span class="col-md-4 col-sm-4 col-xs-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 text-center h5 morePro">加载更多</span>
+		</div>
+		<a href="" class="next pull-right"></a>
+	</body>
+	<script type="text/javascript">
+		var value = sessionStorage.getItem("DecompressionType"); 
+		console.log("减压二级页面"+value);
+		setData("Decompression_page",{heart_decompression_type:value},bb)//减压二级页面
+		function bb(haha){
+			console.log(haha);
+			var type=haha.aa[0].heart_decompression_type;
+			if(type==2){
+				$('.type').html('sports/运动');
+			}else if(type==3){
+				$('.type').html('travel/旅游');
+			}else if(type==5){
+				$('.type').html('foods/美食');
+			}else if(type==6){
+				$('.type').html('games/游戏');
+			}
+			
+			var str=$('.content').html();
+			for(i in haha.aa){
+				str+='<div class="contents"><div class="imgBox"><img src="'+imgaddr+haha.aa[i].heart_user_img+'"/></div>';
+				str+='<p class="time">201314</p><p class="DecompressionId">'+haha.aa[i].heart_decompression_id+'</p>';
+				str+='<p class="project">'+haha.aa[i].heart_decompression_name+"？"+haha.aa[i].heart_decompression_introduction+'</p><br/>';
+				str+='<div class="groupA"><span class="support"><i></i>335</span>';
+				str+='<span class="discuss"><i></i>123</span></div></div>';
+			}
+			$('.content').html(str);
+			
+			
+		}
+		$('.content').on('click','.contents',function(){
+			var id=$(this).children('.DecompressionId').html();
+			sessionStorage.setItem("DecompressionId", id); 
+			var type = sessionStorage.getItem("DecompressionType"); 
+			if(type==2){
+				var value = sessionStorage.getItem("DecompressionId"); 
+				alert("点击击的运动ID为："+value);
+				location='../0main/top.html#/sportD';
+			}else if(type==3){
+				var value = sessionStorage.getItem("DecompressionId"); 
+				alert("点击击的旅游ID为："+value);
+				location='../0main/top.html#/travelD';
+			}else if(type==5){
+				var value = sessionStorage.getItem("DecompressionId"); 
+				alert("点击击的美食ID为："+value);
+				location='../0main/top.html#/sportD';
+			}else if(type==6){
+				var value = sessionStorage.getItem("DecompressionId"); 
+				alert("点击击的游戏ID为："+value);
+				location='../0main/top.html#/travelD';
+			}
+			
+			
+		})
+	</script>
+</html>

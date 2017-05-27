@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>软文专题</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<style type="text/css">
+			body{background-image: url(../images/bg.png);sbackground-size: 100% 100%;margin: 0 auto;}
+			.soft_box{min-width: 1024px;}
+			ul,li{list-style: none;}
+			#myTab a{display: inline-block;}
+			#myTab,#myTab a{color: #cccccc;text-decoration: none;font-size: 16px;}
+			#myTab a.active{color: black;}
+			/*软文主体部分*/
+			.subject a{display: inline-block;}
+			.subject .list-box{margin-top: 8px;padding-left: 0;}
+			.subject .list-box li{float: left;}
+			.subject .list-box li a{width:48px;height:20px;line-height:20px !important;border:1px solid #cccccc;border-radius: 8px;padding-left: 8px;padding-right: 8px;margin-right: 12px;margin-bottom: 10px;}
+			.list-box li a{color: #cccccc;}
+			.list-box a.active{color: #1d71b7;border-color: #1d71b7;}
+			.subject .title{padding-left: 23px;}
+			.subject .recruter{margin-top: 16px;font-size: 15px;color:gray}
+			/*最新与热门*/
+			.new-hot{margin-top: 40px;font-size: 16px;margin-bottom: 12px;}
+			.new-hot a{color: black;}
+			.new-hot a:first-child{margin-right: 25px;}
+			.content-box{border-bottom: 1px solid #cccccc;margin-top: 28px;}
+			.bottom-box{margin-top: 20px;}
+			.group-a{display: inline-block;height: 37px;}
+			.group-a a{position: relative;width: 65px;height: 34px;}
+			.group-a a span{position: absolute;left: 40px;top: 8px;color: #9e9f9f;}
+			.mon{left: 30px !important;}
+			.group-a a i{width: 35px;height: 22px;background-image: url(../3share/img/icons1.png);position: absolute;top: 8px;}
+			.firsts{background-position: 0 1px;}
+			.heart{background-position: -60px 2px;}
+			.talk{background-position: -130px 2px;}
+			.money{background-position: -203px 1px;width: 23px !important;}
+			.bottom-box p{margin-top:10px;font-size: 15px;color: #9e9f9f;}
+			.cons{position: relative;}
+			.rightContent{position: absolute;right: 0;}
+			.rightContent p{margin-top: 17px;}
+			@media only screen and (min-width: 990px) and (max-width: 1199px) {
+				.rightContent{width: 30% !important;}
+			}
+			.tips{border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;width: 165px;padding-bottom: 44px;padding-top: 7px;}
+			.foot{width: 100%;height: 120px;background: #4e7a63;margin-top: 140px;}
+		</style>
+	</head>
+	<body>
+		<div class="container soft_box">
+			<div class="row">
+				<div id="myTab"  class="col-md-2 col-xs-2 col-md-offset-10 col-xs-offset-10">
+					<a href="#soft" class="active" data-toggle="tab">软文专题</a> 
+					> 
+					<a href="#detail" data-toggle="tab">软文详情</a>
+				</div>
+			</div>
+			<div class="tab-content subject">
+				<!--软文专题-->
+				<div class="tab-pane active in" id="soft">
+					<!--top部分-->
+					<div class="row">
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic1_03.png"
+							             alt="媒体对象">
+							    </a>
+							     <span class="pull-right recruter"><b>收录文章13593</b></span>
+							    <div class="media-body title">
+								    <h2 class="media-heading hei"></h2>
+								       <b>热门标签：</b> 
+								    <ul class="list-box">
+								    	<li><a href="" class="active">内涵</a></li>
+								    	<li><a href="">童年</a></li>
+								    	<li><a href="">收录</a></li>
+								    	<li><a href="">善良</a></li>
+								    	<li><a href="">长大</a></li>
+								    	<li><a href="">大学</a></li>
+								    	<li><a href="">慈善</a></li>
+								    </ul>
+							    </div>
+								<div class="new-hot">
+								    	<a href="#new">最新收录</a>
+								    	<a href="#hot">热门</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--收录的主要内容-->
+					<div class="row cons">
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic2_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">胡歌</h4>
+							        	也许在34岁这个年纪，大部分人都有了自己家庭、孩子，但他却仍旧孑然一身。不过，这些并不重要，他安好，便好。<br />
+							       		 即使年过多年，但岁月似乎并未在他脸上留下多少痕迹，蹒跚学步的我已经长大，而他却仍然是我记忆中那个丰神俊朗的翩翩少年。
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-4 rightContent">
+							编辑推荐：<br />
+							<a href=""><img src="../3share/img/soft-pic3_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic4_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic5_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic6_03.png" /></a>
+							<p>其他美文</p>
+							<span class="tips">
+								如何定制一份靠谱的新年计划
+								假如你陷入了莫大的困顿，不如跳一曲”价值探戈“
+							</span>
+						</div>
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic7_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">童言稚语</h4>
+							        	儿子一岁多的时候，没有小伙伴跟他玩，他自己把家里的鞋摆在地上，当汽车站。第一排是他爸爸的大鞋，第二排是我的高跟鞋，第三排是他的小鞋。他把我的高跟鞋叫嘎嘎鞋，很形象，高跟鞋敲击...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic8_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">胡歌</h4>
+							        	一直以来我都很少追剧，不过去年一部《小别离》却让我欲罢不能。剧中展现了不同经济条件的三个家庭，在面对孩子升学、留学、青春期等诸多问题时，与孩子因为观念不同引发了一系列的从图...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic9_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">孤独没有良方，唯有努力生长</h4>
+							        	深夜，小K来电，言语之间满是悲凉的说想要和我出去聊会儿。我抬头看着电脑屏幕上的时间，估摸着他这个点儿应该是喝多了，和他在电话里随意聊了几句之后，我说今天太晚了改天再细聊，便挂...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic10_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">你永远不知道跟你玩的是谁，所以请心存善念。</h4>
+							        	意大利插画家Marco Melgrati创作现实题材：《你永远不知道跟你玩的是谁》他告诫人们请尊重每一个人，有时候你看到的只是一点点，然而别人早已看清你，却没有轻易伤害你罢...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic11_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">“国民公公”王健林又说名言了</h4>
+							        万达集团董事长王健林出席清华大学经济管理学院企业家讲堂，发表了“创新与竞争优势———以万达为例”的演讲。王健林在现场分享了万达的成功秘诀并表达了集团的雄心壮志，继“小目标以来”...	
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic12_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">听过却没听懂那些大道理，难怪你过不好这一生</h4>
+							        	韩寒的电影《后会无期》里有一句经典台词：听过很多道理，却依然过不好这一生。这句台词一度广为流传，成为人们对惨痛的人生现实无奈而凄凉的自嘲。是啊，从小到大，我们最缺少...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic13_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">试着研读一本书</h4>
+							        	研读不是精读，它比精读更上了一个层次。精读有可能就是我们常说的只字不差地阅读，而研读，不仅是只字不差地阅读，而且是只字不差地阅读不止一遍，读完还要有自己主动的思考，边思考边做...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object img-responsive" src="../3share/img/soft-pic14_03.png"
+							             alt="媒体对象">
+							    </a>
+							    <div class="media-body">
+							        <h4 class="media-heading">大学，我用这6件事改变自己</h4>
+							        	弱者为了舒适找借口，强者为了明天养习惯。我们发现所有能够成功的事情，只要成为一种习惯，便会成为你生命当中的平常不过。你最需要就是改变刚开始进入大学的时候，因为痛恨自己来自一个...
+							    </div>
+							</div>
+							<div class="bottom-box">
+							    <div class="group-a">
+								    <a href=""><i class="firsts"></i><span>2368</span></a>
+								    <a href=""><i class="heart"></i><span>298</span></a>
+								    <a href=""><i class="talk"></i><span>15</span></a>
+								    <a href=""><i class="money"></i><span class="mon">13</span></a>
+							    </div>
+							    <p class="pull-right">时间：3小时前</p>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!--软文详情-->
+				<div class="tab-pane fade" id="detail">
+					<p style="background: pink;width: 200px;height: 100px;"></p>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$("#myTab a").on("click",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+				//获取soft-class页面传过来的heart_solular_id
+		        var str = window.location.href;
+		        var num = str.indexOf("=");
+		        var heart_solular_id = str.substr(num+1,1);
+		        $(".hei").html(heart_solular_id);
+				$.ajax({
+					type:"post",
+					url:"http://123.206.43.228/From_the_heart/index.php/Home/From/Soft_Wen_home",
+					async:true,
+					dataType:"jsonp",
+					jsonp:"jsoncallback",
+					timeout:1000,
+					data:{
+						heart_soluar_type:heart_solular_id
+					},
+					success:function(data){
+						console.log(data);
+					},
+					error:function(){
+						alert("数据请求失败");
+					}
+				});
+					
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<style>
+			body{background: url(../images/bg.png) 100% 100%;}
+			.container{min-width: 1024px;}
+			a:focus, a:hover{text-decoration: none;}
+			/*当前坐标*/
+			.coord{margin-top: 60px;}
+			.coord ul,.coord li{display: inline-block;}
+			.coord li a{margin-right: 10px;margin-left: 10px;}
+			/*书本详情父容器*/
+			.book-box{position: relative;}
+			/*书本封面*/
+			.book-box .left{width: 23%;position:absolute;left:0;background: #ffffff;padding:45px 15px;height: 100%;}
+			.book-box .left img{width: 100%;}
+			/*书本介绍*/
+			.book-box .right{width: 76%;float: right;}
+			.book-box .right .book{margin-bottom: 2px;background: #ffffff;padding:25px 0 20px 35px;}
+			.book-box .book a{width: 95px;height: 30px;border-radius: 3px;display: inline-block;line-height: 30px;text-align: center;margin-right: 10px;}
+			.book-money .academic{background: #8bc34a;color: #ffffff;}
+			.book-money .collect{background: #4e7a63;color: #ffffff;}
+			.book-money .buy{background: #e7f3f0;color: #4e7a63;}
+			.book-name h3{margin-top: 0;}
+			/*评分*/
+			.book-name .spanBox{margin-right: 20px;}
+			.book-name .score{position: absolute;right:20px;top: 30px;}
+			.book-name .score ul{margin-bottom: 0;-webkit-padding-start: 0;}
+			.book-name .score ul,.book-name .score li{display: block;float: left;}
+			.book-name .score li{width:20px;height:20px;background: url(../4bookstore/img/heart2.png) no-repeat;margin-top:10px;}
+			.book-name .score .scoreIn{display: block;float: right;font-size: 30px;height: 50px;text-align: center;line-height: 56px;}
+			.money-box span{margin-right: 25px;}
+			.commentBox{border: 1px solid #cccccc;margin-bottom: 5px;}
+			/*评论*/
+			.comments{background: #ffffff;margin-top: 25px;padding-left: 30px;padding-top: 50px;}
+			/*精选评论*/
+			.commentWord{margin-top: 15px;padding-right: 40px;max-height: 100px;overflow: hidden;text-overflow: ellipsis;display:-webkit-box !important;-webkit-line-clamp: 5;-webkit-box-orient: vertical;}
+			/*评论详情框*/
+			.reply{padding: 15px 10px;position: relative;}
+			.reply img{width: 63px;height: 63px;}
+			.reply span{font-size: 14px;display: block;color: gray;}
+			/*评论区用户名*/
+			.media-heading{color: gray;}
+			/*回复*/
+			.huiFu{position: absolute;right: 10px;top: 75px;color:#4e7a63 !important;}
+			/*点击回复出现的框*/
+			.kuang{margin-left: 83px;width: 80%;border: 1px solid #e4d9d9;}
+			/*可能喜欢*/
+			.item{width: 100%;}
+			.item .info{width: 48%;}
+			.item .itemBox{height: 250px;width: 100%;height: 290px;max-height: 800px;position: relative;}
+			.item a{display: block;}
+			/*可能喜欢左边*/
+			.item .info-left,.item .info-right{position: absolute;top: 0;}
+			.item .info-left{left: 0;}
+			.item .info-right{right: 0;}
+			.carousel-control.right,.carousel-control.left{background-image: none;}
+			.item .info-left img,.item .info-right img{width: 100%;height: 187px;}
+			/*发表*/
+			.kuangs{width: 100%;height: 100px;padding-left: 10px;}
+			.tip{font-size: 12px;color: #cccccc;}
+			.publish{color: #4e7a63;padding-right: 10px;font-size: 20px;margin-bottom: 20px;}
+			.check{color:#4e7a63}
+			.huiFu-box{display: none;}
+			/*轮播图的前后按钮*/
+			.carousel-control .back{display:block;width: 100%;height: 30px;background: url(img/back.png) no-repeat;}
+			.carousel-control .forward{display:block;width: 100%;height: 30px;background: url(img/forward.png) no-repeat;}
+			.backBtn{margin-right: 15%;}
+			/*弹出的购买详情*/
+			.hide_box{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+	        .buy_box{background-color:#fff;position:absolute;z-index:1000;border:1px dotted #dedede;display:none;}
+			.shang_close{float:right;display:inline-block;height: 80px;position: absolute;top: 0;right: 0;z-index: 1000;}
+			.buy_box .inner_box{padding: 80px 100px 80px 60px;}
+			.buy_cost{background: #e9e9e9;position: relative;min-height: 88px;padding:15px 10px;}
+			.buy_cost .cost_money{font-size: 16px;text-decoration: line-through;}
+			.buy_cost .cost{display: inline-block;font-size: 18px;color: #4e7a63;margin-top: 10px;}
+			.buy_cost big{color:#4e7a63;}
+			.buy_box .main_box{padding-left: 10px;}
+			.buy_box .book_writer{padding-left: 10px;font-size: 18px;margin-bottom: 24px;}
+			.buy_box .server{-webkit-padding-start: 0;margin-top: 45px;}
+			.buy_box .server ,.buy_box li{display: block;list-style: none;}
+			.buy_box li{height: 50px;line-height: 50px;}
+			.buy_box li .types{letter-spacing: 13px;text-align: center;}
+			.server .station_name{color: #4e7a63;font-size: 16px;}
+			.server .aBtn a{width:220px;font-size: 18px;text-align: center;border-radius: 5px;float: left;margin-left: 63px;}
+			.server .aBtn .buy_now{background: #4e7a63;color: #FFFFFF;}
+			.server .aBtn .bookcase{background: #e7f3f0;color: #4e7a63;}
+			.buy_box .book_face{width: 400px;height: 100%;border: 0;}
+			.server .aBtn{margin-top: 50px !important;}
+			.buy_box .onSale_box{width: 40%;}
+			@media only screen and (min-width:320px ) and (max-width: 1200px) {
+			.server .aBtn a{width: 150px;}
+			}
+			.hardback{border: 1px solid #C2C4C3;font-size: 16px;padding: 8px 8px;}
+			/*购买的数量框*/
+			.nums{width: 51px;height:35px;font-size: 16px;margin-left: -5px;}
+			.server .liBtn{position: relative;}
+			.server .liBtn .ddBtn{display:inline-block;width: 25px;height: 35px;position: absolute;top:8px;}
+			.server .plus,.server .minus{display: inline-block;width: 25px;height: 17px;border: 1px solid #C2C4C3;background-size: cover;}
+			.server .plus{background-image:url(../4bookstore/img/add.png);margin-bottom: 1px;}
+			.server .minus{background-image:url(../4bookstore/img/odd.png);}
+			.cost_box{padding-left:0 ;padding-right: 0;}
+			
+			/*试读界面*/
+			.shiDu{display: none;}
+			.shiDu .free-trials{width: 100%;height: auto;position: relative;}
+			.free-trials .free-left{width: 22%;position: absolute;top: 0;bottom: 0;background: #FFFFFF;padding: 20px 60px 0 60px;}
+			.free-left img{width: 100%;border: 0;}
+			
+			.free-right{width: 74.5%;margin-left: 22.5%;}
+			.free-top,.free-bottom{background: #FFFFFF;padding-left: 35px;}
+			.free-top .book-name{width: 100%;padding: 10px 0;font-size: 20px;margin-left: -8px;}
+			.free-top .author{height: 45px;-webkit-margin-start: 0;}
+			.free-top .author,.free-top li{list-style: none;display: block;}
+			.free-top li{float: left;margin-right: 20px;}
+			.free-trials .grade{position: absolute;right: 8%;top: 15px;}
+			.heart-grade{width: 125px;}
+			.grade .heart-grade,.grade .heart-grade li{list-style: none;display: block;}
+			.grade .heart-grade li{float: left;height: 25px;}
+			.grade .heart-grade li:not(:last-child){width: 25px;background: url(../4bookstore/img/heart1.png) no-repeat center center;}
+			.heart-grade li:last-child{width: 100%;text-align: center;}
+			.soces{width: 30px;font-size: 30px;font-weight: 600;position: absolute;right:5%;top: 18px;}
+			.free-bottom .group-money{padding: 30px 0 10px 0;margin-bottom: 20px;}
+			.group-money span{margin-right: 15px;}
+			.group-btn{height: 50px;}
+			.group-btn span{display:inline-block;width:100px;height:35px;border-radius:8px;margin-right: 20px;text-align: center;line-height: 35px;}
+			.group-btn .bookcase{background: #4e7a63;color: #FFFFFF;}
+			.group-btn .buy-now{background: #e8f2f1;color:#4e7a63}
+			
+			/*序言*/
+			.precourse{margin-top: 40px;width:100%;background: #FFFFFF;padding: 140px 15px 0 15px;margin-bottom: 30px;}	
+			.precourse .pre-top{width: 100%;text-align: center;border-bottom: 3px solid #f0f0f0;color: #54816d;font-size: 20px;}
+			.pre-detail{height: 900px;font-size: 25px;}
+		</style>
+	</head>
+	<body>
+		<div class="container" ng-controller="BookDedial">
+			<!--当前坐标-->
+			<div class="row">
+				<ul class="coord">
+					<li>当前坐标：</li>
+					<li><a href="">书店首页</a>></li>
+					<li><a href="">励志类</a>></li>
+					<li><a href="">少有人走的路</a></li>
+				</ul>
+			</div>
+			<!--书本介绍-->
+			<div class="row book-box">
+				<div class="left">
+					<div class="col-md-12 col-xs-12 text-center">
+						<a href=""><img src="" id="bookImg"/></a>
+					</div>
+				</div>
+				<div class="right">
+					<div class="book-name book col-md-12 col-xs-12">
+						<h3 id="bookName"></h3>
+						<span class="spanBox" id="author"></span>
+						<span class="spanBox">页数：272</span>
+						<span class="spanBox" id="bookPree"></span>
+						<div  class="score">
+							<div class="pull-left">
+								<ul>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul><br />
+								<span class="pull-left">232人评分</span>
+							</div>
+							<div class="scoreIn">
+								8.9
+							</div>
+						</div>
+					</div>
+					<div class="book-money book col-md-12 col-xs-12">
+						<div class="money-box">
+							<span id="moneyNew"></span>
+							<span style="text-decoration:line-through;" id="moneyOld"></span>
+						</div>
+						<br />
+						<a href="javascript:void(0)" class="academic">序号试读</a>
+						<a href="javascript:void(0)" class="collect">书柜收藏</a>
+						<a href="javascript:void(0)" class="buy" onClick="dashangToggle()" title="打赏，支持一下">立即购买</a>
+					</div>
+					<div class="book-detail book col-md-12 col-xs-12">
+						<span id="bookIntroduce"></span>
+					</div>
+				</div>
+				<!--点击立即购买弹出的start-->
+			    <div class="hide_box"></div>
+			    <div class="buy_box">
+			    	<a class="shang_close" href="javascript:void(0)" onClick="dashangToggle()" title="关闭"><img src="../4bookstore/img/backRow.png" alt="取消" /></a>
+					<div class="col-md-12 inner_box">
+						<div class="media">
+							<a href="javascript:;" class="pull-left">
+								<img src="../4bookstore/img/book-pic1.png" class="media-object book_face" />
+							</a>
+							<div class="media-body main_box">
+							<h3 class="media-heading book_name">《你配得上更好的人生》</h3>
+							<h4 class="book_writer">作者：沈嘉柯</h4>
+							<div class="buy_cost">
+								<div class="col-md-12 cost_box">
+									<span class="labels">价格：</span><span class="cost_money">￥26.00</span>
+									<span class="pull-right">有<big>22</big>人买过这本书</span>
+								</div>
+								<div class="onSale_box">
+									<span class="sale">特惠价：</span><a href="" class="cost">￥12.99</a>
+								</div>
+							</div>
+							<ul class="server">
+								<li> <span class="types">服务：</span>由<a href="" class="station_name">从心网站</a>负责发货，并提供售后服务</li>
+								<li> <span class="types">装帧：</span><span class="hardback">精装</span></li>
+								<li class="liBtn"> 
+									<span class="types">数量：</span>
+									<input type="text" value="1" id="amount" class="nums"/>
+									<div class="ddBtn">
+										<span class="pull-left plus" ></span>
+										<span class="pull-right minus"></span>
+									</div>
+									<span style="display: inline-block;margin-left: 28px;margin-right: 25px;">件</span><span style="font-size: 16px;">库存<a href="" id="stock">12</a>件</span>
+								</li>
+								<li> <span class="others">从心承诺：</span>&nbsp;&nbsp;&nbsp;正品保证&nbsp;&nbsp;&nbsp;&nbsp;极速退款&nbsp;&nbsp;&nbsp;&nbsp;七天无理由退换</li>
+								<li class="aBtn"><a href="javascript:;" class="buy_now">立即购买</a><a href="javascript:;" class="bookcase">加入书柜</a></li>
+							</ul>
+						</div>
+						</div>
+					</div>
+			    </div>
+				<!--点击立即购买弹出的支付框end-->
+			</div>
+			<!--评论区-->
+			<div class="row comments">
+				<div class="col-md-8 col-xs-8">
+					<h4>精选评论（<span>66</span>）</h4>
+					<!--需要翻页的评论start-->
+					<div class="commentInfo">
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+										德国之奥士凯了十年 看来我说我说你 蕾哈娜思考无论你说起来 辛苦无论你想
+										起来看我担心你去三卡或四卡三年兰卡威多年前；为了 现代看了五年的心情；老外看到下午看了那些；请问
+										神经纤维瘤；地球文明里面；武断乡曲我们的浪漫； 带来可能我；地下拳王想；旅客请您心情我
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>							
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+						<div class="commentBox">
+							<div class="media reply">
+								<a class="pull-left" href="#">
+								    <img class="media-object" src="img/ddd.png" />
+								</a>
+								<div class="media-body">
+								    <h4 class="media-heading">方头狮子未宁君</h4>
+									<span class="times">2017.1.1 14:30</span>
+									<span class="commentWord">
+										执着精进，拥抱更好的人生————读沈嘉柯《你配得上更好的人生》
+									</span>
+									<span class="huiFu">回复</span>
+								 </div>
+							</div>
+							<div class="huiFu-box">
+								<textarea class="kuang"></textarea>
+								<span class="check">提交</span>
+							</div>
+						</div>
+					</div>
+					<!--需要翻页的评论end-->
+				</div>
+				<div class="col-md-4 col-xs-4 pull-right">
+					<h4>你可能还喜欢</h4>
+					<!--轮播-->
+					<a class="carousel-control right backBtn" href="#myCarousel" data-slide="prev">
+						<i class="back"></i>
+					</a>
+					<a class="carousel-control right" href="#myCarousel" data-slide="next">
+						<i class="forward"></i>
+					</a>
+					<div id="myCarousel" class="carousel slide">
+						<!-- Carousel items -->
+						<div class="carousel-inner">
+							<div class="active item">
+								<div class="itemBox">
+									<div class="info info-left">
+												<a href="javascript:;"><img src="img/book1.png"/></a>
+												<p>刻意练习</p>
+												<span>王正林</span><br />
+												<span>56人看过<i></i></span>
+									</div>
+									<div class="info info-right">
+										<a href="javascript:;"><img src="img/book2.png"/></a>
+										<p>活法</p>
+										<span>周庆林</span><br />
+										<span>30人看过<i></i></span>
+									</div>
+								</div>
+								
+								<div class="itemBox">
+									<div class="info info-left">
+												<a href="javascript:;"><img src="img/book1.png" /></a>
+												<p>刻意练习</p>
+												<span>王正林</span><br />
+												<span>56人看过<i></i></span>
+									</div>
+									<div class="info info-right">
+										<a href="javascript:;"><img src="img/book2.png" /></a>
+										<p>活法</p>
+										<span>周庆林</span><br />
+										<span>30人看过<i></i></span>
+									</div>
+								</div>
+								
+								<div class="itemBox">
+									<div class="info info-left">
+												<a href="javascript:;"><img src="img/book1.png" /></a>
+												<p>刻意练习</p>
+												<span>王正林</span><br />
+												<span>56人看过<i></i></span>
+									</div>
+									<div class="info info-right">
+										<a href="javascript:;"><img src="img/book2.png" /></a>
+										<p>活法</p>
+										<span>周庆林</span><br />
+										<span>30人看过<i></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="itemBox">
+									<div class="info info-left">
+												<a href="javascript:;"><img src="img/book1.png" /></a>
+												<p>刻意练习</p>
+												<span>王正林</span><br />
+												<span>56人看过<i></i></span>
+									</div>
+									<div class="info info-right">
+										<a href="javascript:;"><img src="img/book2.png" /></a>
+										<p>活法</p>
+										<span>周庆林</span><br />
+										<span>30人看过<i></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="itemBox">
+									<div class="info info-left">
+												<a href="javascript:;"><img src="img/book1.png" /></a>
+												<p>刻意练习</p>
+												<span>王正林</span><br />
+												<span>56人看过<i></i></span>
+									</div>
+									<div class="info info-right">
+										<a href="javascript:;"><img src="img/book2.png" /></a>
+										<p>活法</p>
+										<span>周庆林</span><br />
+										<span>30人看过<i></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-8 col-xs-8 text-center">
+					<!--分页-->
+					<ul class="pagination">
+					    <li><a href="javascript:;">&lang;</a></li>
+					    <li class="active"><a href="javascript:;">1</a></li>
+					    <li><a href="javascript:;">2</a></li>
+					    <li><a href="javascript:;">3</a></li>
+					    <li><a href="javascript:;">4</a></li>
+					    <li><a href="javascript:;">5</a></li>
+					    <li><a href="javascript:;">&rang;</a></li>
+					</ul>
+				</div>
+				<div class="col-md-8">
+					<textarea class="kuangs" placeholder="请输入...."></textarea>
+					<small class="tip">还可以输入<span style="color: black; ">500</span>个字符</small>
+					<span class="pull-right publish">发表</span>
+				</div>
+			</div>
+			<!--试读界面start-->
+			<div class="shiDu">
+				<div class="free-trials">
+					<div class="free-left">
+						<img src="../4bookstore/img/book-pic1.png" alt="" />
+					</div>
+					<div class="free-right">
+						<div class="free-top">
+							<div class="book-name">《你配得上更好的人生》</div>
+							<ul class="author">
+								<li>作者：沈嘉柯</li>
+								<li>页数：272</li>
+								<li>出版社：江苏凤凰文艺出版社</li>
+							</ul>
+						</div>
+						<div class="free-bottom">
+							<div class="group-money">
+								<span class="new-money">价格：12.99元</span>
+								<span class="old-money">原价：26.00元</span>
+							</div>
+							<div class="group-btn">
+								<span class="bookcase">加入书柜</span>
+								<span class="buy-now">立即购买</span>
+							</div>
+						</div>
+					</div>
+					<div class="grade">
+						<ul class="heart-grade">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li>232人看过</li>
+						</ul>
+					</div>
+					<div class="soces">8.9</div>
+				</div>
+				<div class="precourse">
+					<div class="pre-top">序言</div>
+					<div class="pre-detail">
+						你配得上更好的人生（序）<br />
+						他是一个生于
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script>
+			$(document).ready(function(){
+				//sessionStorage值
+				var heart_book_id=sessionStorage.getItem("heart_book_id");
+				
+				setData("Book_details",{heart_book_id:heart_book_id},aa);
+				function aa(data){
+					//console.log(haha);
+					var str=data.aa;
+					$("#bookName").html("《"+str.heart_book_name+"》");
+					$("#author").html("作者："+str.heart_bool_author);
+					$("#bookPree").html("出版社："+str.heart_book_press);
+					$("#moneyNew").html("价格："+str.heart_book_price+"元");
+					$("#moneyOld").html("原价："+str.heart_book_price1+"元");
+					$("#bookIntroduce").html(str.hrart_bool_introduce);
+					$("#bookImg").attr("src",imgAdd+str.heart_book_img)
+				}
+				//页面置顶
+				$(window).scrollTop(0);
+				//点击加心
+				$(".score li").on("click",function(){
+					$(this).css("background","url('../4bookstore/img/heart1.png') no-repeat");
+				})
+				
+				//点击试读，隐藏book-box和comments 在少有人走的路加上免费试读
+				$(".academic").on("click",function(){
+					$(".book-box").css("display","none");
+					$(".comments").css("display","none");
+					$(".shiDu").css("display","block");
+					var Dom = '<li>><a href="">免费试读</a></li>';
+					$(".coord").append(Dom);
+				})
+				
+				
+				//购买数量加
+				//获取库存的数量
+				var stock = $("#stock").html();
+				//获取input中的value值
+				var inputVal = $("#amount").val();
+					inputVal = 1;
+				$(".plus").on("click",function(){
+					inputVal = inputVal+1;
+					if(inputVal > stock){
+						alert("只可以买"+stock+"件");
+						inputVal = stock;
+						$("#amount").val(inputVal);
+					}else{
+						$("#amount").val(inputVal);
+					}
+				});
+				//购买数量减
+				$(".minus").on("click",function(){
+					inputVal = inputVal-1;
+					if(inputVal <=0){
+						inputVal=0;
+						$("#amount").val(inputVal);
+					}else{
+						$("#amount").val(inputVal);
+					}
+				})
+				
+				
+				$(".pagination li").on("click",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+				
+				
+				//点击回复显示输入框
+				$(".huiFu").on("click",function(){
+					var index = $(".huiFu").index(this);
+					$(".huiFu-box").eq(index).toggle();
+				});
+				//点击提交
+				$(".check").on("click",function(){
+					var index = $(".check").index(this);
+					var kuangVal = $(".kuang").eq(index).val();
+					var str = "";
+					str='<img src="img/ddd.png" /><h4>小小</h4><span>'+kuangVal+'</span>';
+					$(".media-body").eq(index+1).append(str);
+					//点击提交后清空textarea中的值
+					$(".kuang").eq(index).val("");
+				});      
+			})
+			//立即购买
+			    function dashangToggle(){
+			    	$(".hide_box").fadeToggle();
+			    	$(".buy_box").fadeToggle();
+			    } 
+		</script>
+	</body>
+</html>

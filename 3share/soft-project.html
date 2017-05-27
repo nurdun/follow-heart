@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>软文专题</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<style type="text/css">
+			body{background-image: url(../images/bg.png);sbackground-size: 100% 100%;margin: 0 auto;}
+			.soft_box{min-width: 1024px;margin-top:10px ;}
+			ul,li{list-style: none;}
+			#myTab a{display: inline-block;}
+			#myTab,#myTab a{color: #cccccc;text-decoration: none;font-size: 16px;}
+			#myTab a.active{color: black;}
+			/*软文主体部分*/
+			.subject a{display: inline-block;}
+			.subject .list-box{margin-top: 8px;padding-left: 0;}
+			.subject .list-box li{float: left;}
+			.subject .list-box li a{width:48px;height:20px;line-height:20px !important;border:1px solid #cccccc;border-radius: 8px;padding-left: 8px;padding-right: 8px;margin-right: 12px;margin-bottom: 10px;}
+			.list-box li a{color: #cccccc;}
+			.list-box a.active{color: #1d71b7;border-color: #1d71b7;}
+			.subject .title{padding-left: 23px;}
+			.subject .recruter{margin-top: 16px;font-size: 15px;color:gray}
+			/*最新与热门*/
+			.new-hot{margin-top: 40px;font-size: 16px;margin-bottom: 12px;}
+			.new-hot a{color: black;}
+			.new-hot a:first-child{margin-right: 25px;}
+			.content-box{border-bottom: 1px solid #cccccc;margin-top: 28px;cursor: pointer;}
+			.bottom-box{margin-top: 20px;}
+			.group-a{display: inline-block;height: 37px;}
+			.group-a a{position: relative;width: 65px;height: 34px;}
+			.group-a a span{position: absolute;left: 40px;top: 8px;color: #9e9f9f;}
+			.mon{left: 30px !important;}
+			.group-a a i{width: 35px;height: 22px;background-image: url(../3share/img/icons1.png);position: absolute;top: 8px;}
+			.firsts{background-position: 0 1px;}
+			.heart{background-position: -60px 2px;}
+			.talk{background-position: -130px 2px;}
+			.money{background-position: -203px 1px;width: 23px !important;}
+			.bottom-box p{margin-top:10px;font-size: 15px;color: #9e9f9f;}
+			.cons{position: relative;}
+			.rightContent{position: absolute;right: 0;z-index: 99999999;}
+			.rightContent p{margin-top: 17px;}
+			@media only screen and (min-width: 990px) and (max-width: 1199px) {
+				.rightContent{width: 30% !important;}
+			}
+			.tips{border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;width: 165px;padding-bottom: 44px;padding-top: 7px;}
+			.foot{width: 100%;height: 120px;background: #4e7a63;margin-top: 140px;}
+		</style>
+	</head>
+	<body>
+		<div class="container soft_box">
+			<div class="row">
+				<div id="myTab"  class="col-md-2 col-xs-2 col-md-offset-10 col-xs-offset-10">
+					<a href="#soft" class="active" data-toggle="tab">软文专题</a> 
+					> 
+					<a href="#detail" data-toggle="tab">软文详情</a>
+				</div>
+			</div>
+			<div class="tab-content subject">
+				<!--软文专题-->
+				<div class="tab-pane active in" id="soft">
+					<!--top部分-->
+					<div class="row">
+						<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1">
+							<div class="media">
+							    <a class="pull-left" href="#">
+							        <img class="media-object" src="../3share/img/soft-pic1_03.png" id="headPic">
+							    </a>
+							     <span class="pull-right recruter"><b>收录文章13593</b></span>
+							    <div class="media-body title">
+								    <h2 class="media-heading hei"></h2>
+								       <b>热门标签：</b> 
+								    <ul class="list-box">
+								    	<li><a href="" class="active">内涵</a></li>
+								    	<li><a href="">童年</a></li>
+								    	<li><a href="">收录</a></li>
+								    	<li><a href="">善良</a></li>
+								    	<li><a href="">长大</a></li>
+								    	<li><a href="">大学</a></li>
+								    	<li><a href="">慈善</a></li>
+								    </ul>
+							    </div>
+								<div class="new-hot">
+								    	<a href="#new">最新收录</a>
+								    	<a href="#hot">热门</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--收录的主要内容-->
+					<div class="row cons">
+						<div class="col-md-3 col-xs-4 rightContent">
+							编辑推荐：<br />
+							<a href=""><img src="../3share/img/soft-pic3_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic4_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic5_03.png" /></a>
+							<a href=""><img src="../3share/img/soft-pic6_03.png" /></a>
+							<p>其他美文</p>
+							<span class="tips">
+								如何定制一份靠谱的新年计划
+								假如你陷入了莫大的困顿，不如跳一曲”价值探戈“
+							</span>
+						</div>
+					</div>
+				</div>
+				<!--软文详情-->
+				<div class="tab-pane fade" id="detail">
+					<p style="background: pink;width: 200px;height: 100px;"></p>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				var heartType = sessionStorage.getItem("heart_soluar_type");
+				var bookNames = sessionStorage.getItem("heart_type_name");
+				$(".hei").html(bookNames);
+				//请求数据
+				setData("Soft_Wen_home",{heart_soluar_type:heartType},bb)
+				function bb(data){
+					console.log(data.aa[0].heart_solular_name);
+					var str="";
+					for(i in data.aa){
+						str+='<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-1 content-box">'
+							+'<span class="heart_solular_id" style="display:none !important">'+data.aa[i].heart_solular_id+'</span>'
+							+'<div class="media">'
+							+'<a class="pull-left" href="javascript:;">'	    
+							+'<img class="media-object" src="../3share/img/soft-pic10_03.png"></a>'	        
+							+'<div class="media-body">'	             
+							+'<h4 class="media-heading">'+data.aa[i].heart_solular_name+'</h4>'
+							+'<span>'+data.aa[i].heart_solular_text+'</span></div></div>'  
+							+'<div class="bottom-box">'   
+							+'<div class="group-a">'
+							+'<a href=""><i class="firsts"></i><span>'+data.aa[i].heart_solular_comment+'</span></a>'
+							+'<a href=""><i class="heart"></i><span>'+data.aa[i].heart_solular_love+'</span></a>'   
+							+'<a href=""><i class="talk"></i><span>15</span></a>'	    
+							+'<a href=""><i class="money"></i><span class="mon">13</span></a></div>'
+							+'<p class="pull-right">'+data.aa[i].heart_solular_time+'</p></div></div>';
+					}
+					$(".cons").append(str);
+				}
+				$("body").on("click",".content-box",function(){
+					var index = $(".content-box").index(this);
+					var heart_solular_id = $(".heart_solular_id").eq(index).html();
+					sessionStorage.setItem("heart_solular_id",heart_solular_id);
+					location='../0main/top.html#/softDetail';
+					
+				})
+			})
+		</script>
+	</body>
+</html>

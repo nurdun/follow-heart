@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>从心登陆</title>
+		<link rel="stylesheet" href="../1login/css/iconfont.css" />
+		<style type="text/css">
+			/*全局样式*/
+			*{margin: 0; padding: 0;}
+			html{width: 100%;height: 100%;}
+			body{width: 100%;height: 100%;background-color:#d6e3c5;font-family: "微软雅黑";position: relative;}
+			.center{text-align: center;}
+			/*登录*/
+			.land-box{height: 100%;padding-top: 1px;}
+			.land-img{width: 75%;height: 72%;background: url({{login}}img/land-back.png);background-size:100% 100%;margin-top: 100px;min-width: 1027px;min-height: 772px;padding: 1px;}
+			
+			.register{text-align: right;margin-top: 60px;margin-right: 170px;color:#757e7b}
+			/*登录内容*/
+			.land-contant{width: 600px;height: 100%;}
+			.land-color{color: #757e7b;}
+			.land-form{height:100%;padding-top:35px;position: relative;}
+			.land-form>p{font-size: 22px;margin-bottom:50px ;}
+			.land-form>div{margin-top:50px ;}
+			.land-form>div>label{font-size: 22px;font-weight: 100;margin-left: 55px;}
+			.land-form>div>input{display:inline-block;width: 50%;height: 50px;background-color: rgba(0,0,0,0);border: 1px solid #959595;}
+			.form-control:focus{   box-shadow: none !important; }
+			.prompt{display: inline-block;font-size: 16px;color: #2d7ae3;display: none;}
+			.prompt>i{font-size: 22px;padding: 0 5px 0 15px;}
+			.correct{color: #82928d;display: inline-block;}
+			.forgetPwd{margin-left: 410px;font-size: 14px;margin-top: 20px !important;}
+			.forgetPwd>a{color:#757e7b}
+			.loginBtn{margin-top: 26px !important;}
+			/*表单验证*/
+			input:required:invalid {  /*错误*/ 
+			  border-color:#959595 !important;   
+			}   
+			input:required:valid {  /*正确*/  
+			   border-color:#2d7ae3 !important;     
+			}  
+			/*第三方登录*/
+			.other-login{height:25px;position: absolute;bottom:-150px;left: 55px;margin-bottom: 0;}
+			.other-login>li{width: 95px;height:25px;padding: 0;line-height: 18px;cursor:pointer;}
+			.other-login>li>i{font-size: 20px;margin-right: 7px;}
+			.line{width: 1px !important;height:14px !important;background-color:#96b0a7;vertical-align: middle;}
+			.qq{color: #4eafea;}
+			.weixin{color: #34ac2a;}
+			.weibo{color: #272636;}
+			
+			/*头部和脚步样式*/
+			.top{width: 100%;height:100px;border: 0;position: absolute;top: 0;}
+		</style>
+	</head>
+	<body >
+		<!--<iframe src='../0main/top.html' class="top" scrolling="no"></iframe>-->
+		<div class="land-box">
+			<div class="land-img center-block">
+				<div class="register">没有账号，<a href="#">立即注册</a></div>
+				<div class="land-contant center-block">
+					<form  action="" method="post" class="land-form">
+						<p class="land-color center">欢迎登录</p>
+					  	<div class="">
+					  		<label class="land-color">用户名称：</label>
+					  		<input type="text" name="userName" value="" class="form-control" id="userName" required pattern="[A-Za-z0-9]+$"/>
+					  		<div class="prompt noExits"><i class="iconfont icon-jinggao"></i>用户不存在</div>
+					  		<div class="prompt correct "><i class="iconfont icon-zhengque"></i></div>
+					  	</div>
+					  	<div class="">
+					  		<label class="land-color">登录密码：</label>
+					  		<input type="password" name="password" value="" class="form-control" id="password" required pattern="[A-Za-z0-9]+$"/>
+					  		<div class="prompt correct curret2"><i class="iconfont icon-zhengque"></i></div>
+					  	</div>
+					  	<div class="forgetPwd"><a>忘记密码</a></div>
+					  	<div class="loginBtn"><img src="{{login}}img/land-btn.png" class="center-block"/></div>
+					  	<ul class="list-inline list-unstyled other-login">
+						  	<li class="center land-color"><i class="iconfont icon-qq qq"></i>QQ</li>
+						  	<li class="line"></li>
+						  	<li class="center land-color"><i class="iconfont icon-weixin weixin"></i>微信</li>
+						  	<li class="line"></li>
+						  	<li class="center land-color"><i class="iconfont icon-weibo weibo"></i>微博</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		sessionStorage.setItem("sign", 0);
+		$('.loginBtn').on("click",function(){
+			setData("Sign_in",{heart_name_text:$("#userName").val(),heart_password:$("#password").val()},bb)
+			function bb(haha){
+				sessionStorage.setItem("sign", 1);
+				location= "../0main/top.html#/home";
+			}
+		})
+	</script>
+</html>

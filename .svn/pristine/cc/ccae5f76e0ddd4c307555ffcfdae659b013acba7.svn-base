@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>验证</title>
+
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src="../js/ajax.fn.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script src="../js/params.js"></script>
+    <script>
+
+    </script>
+	</head>
+	<style>
+	    *{margin: 0; padding: 0;}
+	    .head{width: 100%; height: 50px;}
+	    .main{width: 100%; height: 770px;  background: url(img/pic.png) no-repeat  0 -50px; background-size: 100%;}
+		input{width: 400px !important; height: 40px !important; padding: 10px; background-color: #dee6d3 ; border: 1px solid #959595; }
+	   .tishi{height: 40px; line-height: 40px;}
+	   .form{width: 550px; margin: auto; padding-top: 10px;}
+	  
+	    h3{text-align: center; font-size: 20px; padding-top: 40px; color:#757e7b;}
+	   div{height: 60px; }
+	  #writeyzm{width: 280px !important;}
+	   #getyzm{width: 120px !important; height: 40px; margin-left:-4px;}
+	   .chechbox{width: 20px !important;float: left; }
+	   .agree span{display: block; float:left; padding-top: 14px;}
+	  
+	</style>
+	<body>
+		<div class="head"></div>
+		
+		 <div class="main" ng-app="myApp" ng-controller="registerCtrl">
+		 	 <h3>欢迎注册</h3>
+		 	 <form class="form" name="registerForm" novalidate>
+		 	 	
+		 	 	<div id="name-group">
+                  <input type="text"
+                      ng-model="name" name="name" id="name"  
+                     placeholder="用户名" style="float:left;" required >
+                   <p >
+                     <span class="tishi"  ng-show="registerForm.name.$invalid">
+                        <span ng-show="registerForm.name.$error.required">请输入姓名</span>
+                        
+                     </span>
+                   </p>
+                </div>
+                
+                 <div id="password-group">
+                   <input type="password"
+                    ng-model="password" ng-minlength="6"
+                    ng-maxlength="12" name="password" id="password"
+                    placeholder="设置密码" style="float:left;" required>
+                  <p style="float:left;">
+                    <span class="tishi"  ng-show="registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.minlength">密码长度不小于6</span>
+                        <span ng-show="registerForm.password.$error.maxlength">密码长度不超过12</span>
+                    </span>
+                  </p>
+                </div>
+                
+                <div id="passwordagaingroup">
+                <input type="password"
+                     ng-model="passwordagain" name="passwordagain"
+                    id="passwordagain" placeholder="确认密码" style="float:left;" required>
+                  <p style="float:left;">
+                    <span  class="tishi"  ng-show="registerForm.password.$valid">
+                        <span ng-show="passwordagain!=password">两次密码输入不一致</span>
+                    </span>
+                  </p>
+                </div>
+                
+               <div id="phonenumbergroup">
+                  <input id="phonenumber" placeholder="请输入电话" type="tel" name="phonenumber"
+                  ng-model="phonenumber" ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[3|5][0-9]\d{4,8}$/"required>
+               <span class="glyphicon glyphicon-ok input_result text-success"
+               ng-if="registerForm.phonenumber.$valid"></span>
+               <span class="text-danger glyphicon glyphicon-remove"
+               ng-if="registerForm.phonenumber.$error.required&&registerForm.phonenumber.$touched">电话不能为空！</span>
+               <span class="text-danger glyphicon glyphicon-remove"
+               ng-if="(registerForm.phonenumber.$error.minlength||registerForm.phonenumber.$error.maxlength||registerForm.phonenumber.$error.pattern)&&registerForm.phonenumber.$touched">请输入有效手机号!</span>
+              
+               </div>
+               
+               <div id="yzm">
+               	 <input type="text" name="writeyzm" id="writeyzm">
+               	 <button id="getyzm">获取验证码</button>
+               </div>
+              
+              <div class="agree">
+              	<input type="checkbox" class="chechbox">
+              	<span >我已阅读同意<a href="new_file.html">《用户注册协议》</a></span>
+              </div>
+                
+                <div class="login" ng-click="regist()"><img src="img1/lijizhuce_03.png"></div>
+                <!--<button type="submit"  class="btn btn-success"
+                ng-disabled="registerForm.phonenumber.$invalid || registerForm.name.$invalid || registerForm.password.$invalid || password != passwordagain ">
+                提交<span class="fa fa-arrow-right"></span>
+            </button>-->
+		 	 </form>
+		 </div>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('registerCtrl', function($scope) {
+
+                $scope.regist = function(){
+
+                    var name = document.getElementById("name").value;
+                    var pass = document.getElementById("password").value;
+                    var phone = document.getElementById("phonenumber").value;
+
+                    var data= {
+                        heart_user_name:name,
+                        heart_password:pass,
+                        heart_phone:phone
+                    }
+                    var optoin = {
+                        url:addr+"index.php/Home/From/register",
+                        data:data,
+                        succ:function(){
+                            alert("yes");
+                        }
+                    }
+                    getData(optoin);
+                }
+
+            });
+
+
+        </script>
+		
+	</body>
+	
+
+</html>

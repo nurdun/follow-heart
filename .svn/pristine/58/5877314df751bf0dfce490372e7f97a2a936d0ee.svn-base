@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>旅游详情页</title>
+		<style>
+			body{background-image: url({{pressure}}../images/bg.png);background-size: 100% 100%;margin: 0 auto;}
+			.detail-page{min-width: 630px;}
+			a:hover{text-decoration: none;}
+			.title{position: relative;height: 75px;}
+			.title .line{position:absolute;bottom:0;border-bottom: 1px solid #cccccc;}
+			.title .h1{padding: 0;height: 75px;line-height: 75px;margin-top: 0;margin-bottom: 0;border-bottom: 1px solid #1d71b7;color: #1d71b7;font-family:"agency fb"}
+			.gray{right: 0;}
+			.headPic{margin-top: 35px;}
+			.content{position: relative;border-bottom: 1px solid #cccccc;padding-bottom: 44px;}
+			.content .h2,.content .box{position: absolute;left: 100px;}
+			.content .h2{top:2px;}
+			.content .box{width: 70%;}
+			.content .box span{display: inline-block;font-size: 18px;}
+			.imgBox img{width: 100%;margin-top: 25px;margin-bottom: 25px;}
+			.detail{margin-bottom: 30px;}
+			.words{clear: both;display: block;}
+			.others{color: #4e7a63;}
+			.movies{height: 200px;background: #cccccc;padding: 25px;color: black;margin-top: 30px;}
+			.movies .media-heading{color: black !important; }
+			.foot{width: 100%;height: 120px;background: #4e7a63;}
+			.more{padding-top: 22px;padding-bottom: 22px;color: #2c79ba;font-size: 20px;}
+			.comments{margin-bottom: 30px;margin-top: 30px;color: #cccccc;}
+			.section{overflow: hidden;width: 100%;height: 90px;}
+			.tip{font-size: 12px;color: #cccccc;}
+			.publish{color: #4e7a63;padding-right: 10px;}
+			.btn{border-bottom: 1px solid #cccccc;padding-bottom: 10px;font-size: 18px;}
+			.commentBox{border: 1px solid #cccccc;margin-bottom: 5px;}
+			.reply{padding: 20px 10px;position: relative;}
+			.reply img{width: 63px;height: 63px;}
+			.reply span{font-size: 14px;display: block;color: gray;}
+			.commentWord{position: absolute;bottom: 10px;}
+			.media-heading{color: gray;}
+			.huiFu{position: absolute;right: 10px;bottom: 10px;color:#4e7a63 !important;}
+			.kuang{margin-left: 83px;width: 80%;border: 0;display: none;}
+			@media only screen and (max-width: 530px) {
+				.huiFu{position: absolute;top:20px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container detail-page">
+			<div class="row title">
+				<div class="col-md-4 col-xs-4 line"></div>
+				<div class="col-md-4 col-xs-4 lines h1 text-center col-md-offset-4  col-xs-offset-4">
+					travel / 旅行{{foodDetailCtrl}}
+				</div>
+				<div class="col-md-4 col-xs-4 line gray"></div>
+			</div>
+			<div class="row content">
+				<div class="col-md-5">
+					<img src="{{pressure}}img/head_03.png" class="headPic"/>
+					<p class="h2">如果你还没有去过乌镇</p>
+					<div class="box">
+						<span class="time">时间：2016-11-21</span><span class="labels pull-right">标签：乌镇</span>
+					</div>
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-md-12 detail">
+					<p class="h4">乌镇东西栅</p>
+					<span>
+						提起乌镇，估计很多人都对这座城市古镇怀着向往，走一回青石板的老街，
+						体会一把依水而居的生活。尽管如此，但其实乌镇也只是一座小镇，除了东栅和西栅，
+						几乎没什么可以逛的景点，所以不用那么神化它。它就在那里，不来不去，
+						在时间的长河里从容地接受着一波又一波游客的来往。如果要分别用一个词来形容的话，东栅是静谧的，西栅是溢彩的。
+					</span>
+					<div class="col-md-8 col-md-offset-2 imgBox">
+						<img src="{{pressure}}img/picture1.png" class="img-responsive" />
+					</div>
+				</div>
+				<div class="col-md-12 detail">
+					<span>
+						也许是逛了夜晚的西栅而来的先入为主感，但是你到乌镇，
+						当地人大概都会建议你晚上去西栅逛逛。夜晚的西栅，流光溢彩。
+						里面几乎都是大概3米宽的小巷，一侧邻水，一侧是店铺。
+						这些小巷都很长，走半个小时都看不到尽头的那种。西栅有一个特色就是：
+						每隔一小段就是通向水边的巷子口，大概是为了方便这里的居民用水，
+						过道里页都是2排长椅。想象以下这里的居民，挑一个夏夜，坐在这里纳纳凉，吹着河风和穿堂风。
+					</span>
+					<div class="col-md-8 col-md-offset-2 imgBox">
+						<img src="{{pressure}}img/picture2.png" class="img-responsive" />
+						<img src="{{pressure}}img/picture3.png" class="img-responsive" />
+					</div>
+					<span class="words">
+						说起这里的店铺，同质性挺高的，但是一两家给人印象很深。有一家灯笼店，
+						借着旁边就是通道的优势，挂满了整个通道顶，美得都算拍照绝佳地点了，
+						很有元宵佳节的感觉。还有一家卖竹制匾的店，很别出心裁，同样旁边就是露天的大大过道，
+						索性就做了一个超大号的匾，有多大呢？直径有到房顶那么高，上面写着乌镇，倒像极了名胜旅游地的石碑一样的存在
+					</span>
+				</div>
+				<div class="col-md-12 detail">
+					<span>
+						也许是逛了夜晚的西栅而来的先入为主感，但是你到乌镇，当地人大概都会建议你晚上到西栅逛逛。夜晚的西栅，流光溢彩。
+						里面几乎都是3米宽的小巷，一侧邻水，一侧是店铺。这些小巷都很长，走半个小时都看不到尽头的那种。西栅有一个特点就是：每隔一小段就是通向水边的巷子口，
+						大概是为了方便这里的居民用水，过道里都是2排长椅。想象一下这里的居民，挑一个夏夜，坐在这里纳纳凉，吹着河风和穿堂风。
+					</span>
+					<div class="col-md-8 col-md-offset-2 imgBox">
+						<img src="{{pressure}}img/picture4.png" class="img-responsive" />
+					</div>
+					<span class="words">
+						同时，东栅也比西栅古色古香的多，到处可见斑驳的墙壁。河水从中间穿流而过，
+						隔开两侧的房屋，两岸的人们仅能通过隔一个小段就有的一座座桥产生交集。
+						东栅的房子都是建于水上的，真的可算作东方威尼斯吧。即使游客摩肩接蝩，川流不息，
+						在我眼里，东栅实施那样的静谧缓慢。小船在不是很宽的河道里摇橹。
+					</span>
+				</div>
+			</div>
+			<div class="row others">
+				<div class="col-md-10 col-md-offset-1">
+					<span class="h2">
+						看到这么美得像画的地方心动了吗？还不去放松？<br />
+						那就说走就走结伴趣旅行吧~
+					</span>
+					<div class="media movies">
+					    <a class="pull-left" href="#" style="width: 153px;height: 100%;background: deeppink;">
+					    </a>
+					    <div class="media-body">
+					    	<div style="margin-top: 50px;margin-left: 50px;">
+					        <p class="media-heading h3" >关于乌镇的美丽景色的视频</p>
+					       	时长：2分钟
+					       	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<!--评论-->
+			<div class="row more">
+				<a href="" class="col-md-12 col-xs-12 text-center">
+					<span class="btn">点击跳转至阿里旅行→</span>
+				</a>
+				<div class="col-md-8 col-md-offset-2 comment">
+					<p class="comments">精选评论（2）</p>
+					<textarea name="" rows="" cols="" class="section"></textarea>
+					<small class="tip">还可以输入500个字符</small>
+					<div class="pull-right publish">发表</div>
+				</div>
+			</div>
+		</div>
+		<script>
+				
+				var DecompressionId = sessionStorage.getItem("DecompressionId"); 
+				console.log("当前减压详情ID为："+DecompressionId)
+				setData("Travel_details",{heart_decompression_id:DecompressionId},bb)//旅游详情
+				function bb(haha){
+					console.log(haha);
+				}
+				
+				$(".comment").on("click",".publish",function(){//用户发表评论
+					var text=$('.section').val();
+					setData("Travel_review",{heart_user_id:1,heart_decompression_id:DecompressionId,heart_decompression_text:text},returnData)//旅游详情
+					function returnData(haha){
+						if (haha.return==1000) {
+							window.location.reload();
+						}
+					}
+				})
+				
+				setData("Return_travel",{heart_decompression_id:DecompressionId},aa)//旅游详情评论
+				function aa(haha){
+					console.log(haha);
+					var str=$('.comment').html();
+					for(i in haha.aa){
+						str+='<div class="commentBox"><div class="media reply">'
+						str+='<a class="pull-left" href="#"><img class="media-object" src="'+imgaddr+haha.o[i].heart_user_img+'" /></a>'
+						str+='<div class="media-body"><h4 class="media-heading">'+haha.o[i].heart_user_name+'</h4>'
+						str+='<span class="times">'+haha.aa[i].heart_decompression_time+'</span><span class="commentWord">'+haha.aa[i].heart_decompression_text+'</span><span class="huiFu">回复</span>'
+						str+='</div></div><textarea name="" rows="" cols="" class="kuang"></textarea></div>'
+					}
+					$('.comment').html(str)
+					//用户回复评论
+//					var huiFuNum=true;
+//					$(".huiFu").on("click",function(){
+//						var index = $('.huiFu').index(this);
+//						$(".kuang").eq(index).toggle();
+//						if (huiFuNum) {
+//							//setData("Return_travel",{heart_decompression_id:DecompressionId},returnData)
+//						}
+//						function returnData(haha){
+//						if (haha.return==1000) {
+//							console.log("发表评论成功");
+//						}
+//					}
+//					});
+				}
+		</script>
+	</body>
+</html>

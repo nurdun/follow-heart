@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>减压主页</title>
+		<style type="text/css">
+			.box{background-image:url({{pressure}}img/mainBg.png);margin-top: 12px;}
+			.title{font-size: 120px;color: #1d71b7;text-align: center;}
+			.imgleft,.imgright{width:33.33% !important;float: left;width: 350px;padding: 100px 15px;}
+			.imgcenter{width:33.33% !important;float: left;width: 410px;padding: 150px 15px 0;}
+			.imgleft>div,.imgright>div{margin-bottom: 215px;}
+			.imgcenter>div{margin-bottom: 112px;}
+			.imgBox{height:450px;position: relative;}
+			.imgBox>img{position:absolute;width: 100%;height: 100%;}
+			.imgBg{position:absolute;width: 100%;height: 16%;background-color: rgba(0, 0, 0, 0.3);bottom: 0;}
+			.imgtext{width: 100%;height: 100%;position:relative;font-size: 24px;color: white;}
+			.imgtext>span{width:100px;height:30px;line-height:30px;text-align:center;position:absolute;top:50%;left:50%;margin: -15px 0 0 -50px;}
+		</style>
+	</head>
+	<body >
+		<div class="box">	
+		<div class="container " >
+			<div class="title"><span>relax/放松</span></div>
+			<div style="width: 37%;height：10px;float: left;border-bottom: 1px solid #a0a0a0;"></div>
+			<div style="width: 26%;height：10px;float: left;border-bottom: 1px solid  #1d71b7"></div>
+			<div style="width: 37%;height：10px;float: left;border-bottom: 1px solid #a0a0a0;"></div>	
+			<div class="imgleft">
+				<div class="imgBox">
+					<img src="{{pressure}}img/re1.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>音乐</span></div>
+					</div>
+				</div>
+				<div class="imgBox">
+					<img src="{{pressure}}img/re4.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>阅读</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="imgcenter">
+				<div class="imgBox">
+					<img src="{{pressure}}img/re2.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>运动</span></div>
+					</div>
+				</div>
+				<div class="imgBox">
+					<img src="{{pressure}}img/re5.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>游戏</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="imgright">
+				<div class="imgBox">
+					<img src="{{pressure}}img/re3.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>旅游</span></div>
+					</div>
+				</div>
+				<div class="imgBox">
+					<img src="{{pressure}}img/re6.png"/>
+					<div class="imgBg">
+						<div class="imgtext"><span>美食</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(".imgBox").hover(
+		  function () {
+		    $(this).children('.imgBg').animate({'height':"100%"},1000)
+		  },
+		  function () {
+		    $(this).children('.imgBg').animate({'height':"16%"},1000)
+		  }
+		);
+		$(".imgBox").on('click',function(){
+			var index=$(".imgBox").index(this);
+			switch(index) {
+				case 0:location='../2re-pressure/listen.html';break;//音乐
+				case 1:location='../0main/top.html#/read';break;//阅读
+				case 2: setDecompressionType(2);break;//运动
+				case 3: setDecompressionType(6);break;//游戏
+				case 4: setDecompressionType(3);break;//旅游
+				case 5: setDecompressionType(5);break;//美食
+			}
+			function setDecompressionType(Type){
+				sessionStorage.setItem("DecompressionType", Type);
+				location='../0main/top.html#/travel';
+			}
+			
+		})
+	</script>
+</html>

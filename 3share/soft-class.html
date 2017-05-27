@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>软文分类</title>
+		<style>
+			body{background-image: url({{share}}../images/bg.png);background-size: 100% 100%;margin: 0 auto;}
+			.row span{display: inline-block;}
+			i{display: inline-block;}
+			a:hover{text-decoration: none;}
+			.like a{color: #000000;border-left: 2px solid #1d71b7;padding-left: 20px;}
+			.choose{padding-left: 18px;}
+			.choose p{margin-top: 13px;}
+			.choose p a{margin-right: 15px;color: gray;}
+			.firsted{margin-top: 50px !important;}
+			.content{margin-top: 100px;padding: 28px 25px;background: #ffffff;box-shadow: 2px 2px 10px gray,-2px -2px 10px gray;cursor: pointer;}
+			.content img{width: 280px;height: 280px;}
+			/*软文类别*/
+			h1{font-size: 50px;}
+			.h3{color: gray;border-bottom: 2px solid darkgray;padding-bottom: 38px;margin-top: 100px;width: 70%;}
+			.media-left, .media>.pull-left{padding-right: 18px;}
+			.btn{width: 100%;font-size: 23px;margin-top: 45px;}
+			.btn span{border-bottom: 2px solid #C0C0C0;padding-bottom:15px ;}
+			.comments{margin-top: 70px;}
+			.comments p{font-size: 20px;font-weight: 600;}
+			.reward{background: #33443b;color: #cccccc;padding: 5px 10px;border-radius: 25px;font-size: 16px;}
+			.pic-group{height: 25px;position: relative;}
+			.pic-group .infoPic{position: absolute;left: 45%;}
+			.pic-group img{width: 25px;height: 25px;border-radius: 25px;float: left;}	
+			.fover,.way{margin-top: 30px;}
+			.fover{display:inline-block;width: 125px;height: 33px;border: 1px solid #33443b;color: #33443b;border-radius: 10px;padding: 4px 5px;position: relative;}	
+			.fover span,.fover .icons{height: 25px;position: absolute;}
+			.fover .icons{width: 65%;border-right: 1px solid #33443b;}
+			.fover i{width: 25px;height: 25px;background: url({{share}}img/greenH.png) no-repeat 2px 4px;}
+			.num{right: 4px;padding-top: 2px;}
+			.likes{padding-left: 3px;padding-top: 2px;font-weight: 600;}
+			/*打赏*/
+			.way{height: 33px;padding: 4px 5px;font-size: 16px;}
+			.way .icons{width:102px;height:30px;display: inline-block;float: left;position: relative;margin-right: 25px;}
+			.way .icons i,.way .icons span{position: absolute;}
+			.way .icons i{width: 25px;height: 25px;top: 4px;left: -22px;}
+			.way .icons i.weiBo{background: url({{share}}img/weibo.png) no-repeat;}
+			.way .icons i.weiXin{background: url({{share}}img/weixin.png) no-repeat;}
+			
+			.comments{margin-bottom: 30px;margin-top: 30px;color: #cccccc;}
+			.section{overflow: hidden;width: 100%;height: 90px;color: black;}
+			.tip{font-size: 12px;color: #cccccc;}
+			.publish{color: #4e7a63;padding-right: 10px;}
+			.btn{padding-bottom: 10px;font-size: 18px;}
+			.commentBox{border: 1px solid #cccccc;margin-bottom: 5px;}
+			.reply{padding: 20px 10px;position: relative;}
+			.reply img{width: 63px;height: 63px;}
+			.first{margin-top: 30px;}
+			.reply span{font-size: 14px;display: block;color: gray;}
+			.commentWord{position: absolute;bottom: 10px;}
+			.media-heading{color: gray;}
+			.huiFu{position: absolute;right: 10px;bottom: 10px;color:#4e7a63 !important;}
+			.kuang{margin-left: 83px;width: 80%;border: 0;display: none;}
+			@media only screen and (max-width: 530px) {
+				.huiFu{position: absolute;top:20px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container soft-class">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<h2 class="like"><a href="">发现喜欢的内容</a></h2>
+					<div class="choose">
+						选择你喜欢的和感兴趣，对于你来说，是一个快捷的发现喜欢的内容的途径，从心推出了各类兴趣专题，整合了
+						优质内容，下面这个列表可以帮助你快速地了解从心所有官方专题。
+						<p>
+							<a href="">阅读：<span>13560</span></a> 
+							<a href="">喜欢：<span>6500</span> </a>
+							<a href="">评论：<span>152</span> </a>
+							<a href="">时间：<span>2016.12.31 14:31</span></a>
+						</p>
+					</div>
+					<!--first-->
+					<div class="media content firsted">
+					    <a class="pull-left" href="#/soft">
+					        <img class="media-object img-responsive" src="{{share}}img/soft-pic10_03.png"
+					             alt="媒体对象">
+					    </a>
+					    <div class="media-body rightCon">
+					        <h1 class="media-heading">科普</h1>
+					        <p class="h3">性格色彩一分钟放松</p>
+					    </div>
+					</div>
+					<a href="javascript:;" class="text-center btn"><span>点击前往“科普”专题中心</span></a>
+					<!--second-->
+					<div class="media content">
+					    <a class="pull-left" href="#">
+					        <img class="media-object img-responsive" src="{{share}}img/soft-pic10_03.png"
+					             alt="媒体对象">
+					    </a>
+					    <div class="media-body rightCon">
+					        <h1 class="media-heading">成长故事</h1>
+					        <p class="h3">需要极少满足极易</p>
+					    </div>
+					</div>
+					<a href="javascript:;" class="text-center btn"><span>点击前往“生活故事”专题中心</span></a>					
+				
+					<div class="media content">
+					    <a class="pull-left" href="#">
+					        <img class="media-object img-responsive" src="{{share}}img/soft-pic10_03.png"
+					             alt="媒体对象">
+					    </a>
+					    <div class="media-body rightCon">
+					        <h1 class="media-heading">婚姻育儿</h1>
+					        <p class="h3">尼可忽视全世界<br />而不要忽视配偶</p>
+					    </div>
+					</div>
+					<a href="javascript:;" class="text-center btn"><span>点击前往“婚姻育儿”专题中心</span></a>	
+					
+					<div class="media content">
+					    <a class="pull-left" href="#">
+					        <img class="media-object img-responsive" src="{{share}}img/soft-pic10_03.png"
+					             alt="媒体对象">
+					    </a>
+					    <div class="media-body rightCon">
+					        <h1 class="media-heading">艺术文化</h1>
+					        <p class="h3">天才的作品是用眼泪灌溉的</p>
+					    </div>
+					</div>
+					<a href="javascript:;" class="text-center btn"><span>点击前往“艺术文化”专题中心</span></a>	
+					
+					<div class="media content">
+					    <a class="pull-left" href="#">
+					        <img class="media-object img-responsive" src="{{share}}img/soft-pic10_03.png"
+					             alt="媒体对象">
+					    </a>
+					    <div class="media-body rightCon">
+					        <h1 class="media-heading">健康养生</h1>
+					        <p class="h3">人生最大的财富是希望<br />人生最大的资本是健康</p>
+					    </div>
+					</div>
+					<a href="javascript:;" class="text-center btn"><span>点击前往“健康养生”专题中心</span></a>
+				</div>
+				
+
+			</div>
+			<!--评论和打赏区-->
+			<div class="row comments">
+				<div class="col-md-8 col-md-offset-2">
+						<p class="text-center">你的打赏是我们的动力！</p>
+						<p class="text-center"><span class="reward">赏赐</span></p>
+						<div class="pic-group text-center">
+							<div class="infoPic">
+								<img src="{{share}}img/soft-pic10_03.png" />
+								<img src="{{share}}img/soft-pic13_03.png" />
+								<img src="{{share}}img/soft-pic14_03.png" />
+							</div>
+						</div>
+					<div class="fover">
+						<div class="icons"><i></i><span class="likes">喜欢</span></div>
+						<span class="num">233</span>
+					</div>
+					<div class="way pull-right">
+						<div class="icons">
+							<i class="weiBo"></i>
+							<span class="likes">分享到微博</span>
+						</div>
+						<div class="icons">
+							<i class="weiXin"></i>
+							<span class="likes">分享到微信</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".content").on("click",function(){
+					var index = $(".content").index(this);
+					sessionStorage.setItem("heart_soluar_type",(index+1));
+					var book_type_name=$(".rightCon h1").eq(index).html();
+					sessionStorage.setItem("heart_type_name",book_type_name);
+					window.location.href='../0main/top.html#/soft';
+				})
+			})
+		</script>
+	</body>
+</html>

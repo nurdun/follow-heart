@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>书店主页</title>
+	<style type="text/css">
+		.lunList>li{background-color: #fff;border: 0;}
+		.lunList>.active{background-color: #4e7a63 ;}
+		
+		.box{background-color: #e7f3f0;padding-bottom: 80px;font-family: "楷体";}
+		.recommended {background-color: #fff;margin-top: 80px;padding: 0;min-width: 1080px;}
+		.recommendedTitle{height: 52px;border-bottom: 1px solid #999;margin: 0 20px  ;}
+		.recommendedTitle>span{color: #4e7a63;font-size: 30px;line-height: 52px ;}
+		.recommendedTitle>ul{float: right;padding: 0;}
+		.recommendedTitle>ul>li{float: right;width: 80px;list-style: none;}
+		
+		.bookMenu{width: 68px;height:25px;margin: 12px 6px;line-height: 25px ;color: #666;text-align: center;font-size: 22px;cursor: pointer;}
+		.bookMenuColor{background-color:#4e7a63;color: #fff;}
+		.bookshelf{margin: 40px 20px 0 ;padding: 0;clear: both;}
+		.bookshelf>li{width: 50%;float: left;list-style: none;margin-bottom: 40px;}
+		.bookshelf>li>a{display: block;text-decoration: none;margin: 6px 0 44px 40px;clear: both;}
+		.shelfItem{width: 220px;height: 278px;float: left;box-shadow: 0 15px 15px #c2c4c3;}
+		.shelfItem>img{width:100%;height:100%;}
+		.bookinfo{width: 260px;height: 278px;float: left;padding:0 10px 0 30px  ;position: relative;}
+		.bookinfo>h3{color: #333;font-size: 22px;margin:10px 0 30px ;font-weight: bold;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+		.bookinfo>p{font-size: 19px;color: #666; overflow:hidden; display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
+		.bookinfo>span{font-size: 26px;color:#4e7a63 ;position: absolute;bottom: 10px;}
+		.shelfFooter{clear: both;height: 54px;border-top:  1px solid #999;margin:0 20px;}
+		
+		#banner {position: relative;width:100%;height: 580px;overflow: hidden;margin: 0 auto;padding: 10px 0;}
+		.imgList a,.imgList2 a{text-decoration:none;color: #b8b8b8;}
+		.imgList ,.imgList2{position: relative;width: 3240px;overflow: hidden;padding: 0;}
+		.imgList ul, .imgList2 ul {padding:0 ;}
+		.imgList li ,.imgList2 li{float: left;display: inline;}
+		.imgList div , .imgList2 div{padding: 80px 69px 50px  ;border-right: 1px solid #999;}
+		.bookItem{width:100%;height: 315px;padding: 0 !important;border:0 !important;margin-bottom: 20px;box-shadow: 0 15px 15px #c2c4c3;}
+		.bookItem~h3{width:220px;color: #333;font-size: 22px;font-weight: bold;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+		.bookItem~p{font-size: 18px;}
+		.bookItem~span{font-size: 16px;}
+		.bookItem>img{width: 100%;height: 100%;}
+		#prev,#next,#prev2,#next2 {position: absolute;top: 200px;cursor: pointer;background-color: red;}
+		#prev,#prev2 {left: 10px;}
+		#next,#next2 {right: 10px;}
+		#prev:hover,#next:hover {opacity: 0.5;filter: alpha(opacity=50);}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!--bootstrap轮播图-->
+		<div id="myCarousel" class="carousel slide">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators lunList">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="{{bookstore}}img/lun1.png" alt="First slide">
+				</div>
+				<div class="item">
+					<img src="{{bookstore}}img/lun2.png" alt="Second slide">
+				</div>
+				<div class="item">
+					<img src="{{bookstore}}img/lun3.png" alt="Third slide">
+				</div>
+			</div>
+			<!-- 轮播（Carousel）导航 -->
+			<span class="carousel-control left" data-target="#myCarousel" 
+			   data-slide="prev"></span>
+			<span class="carousel-control right" data-target="#myCarousel" 
+			   data-slide="next"></span>
+		</div> 
+		<!---->
+		<div class="recommended container">
+			<div class="recommendedTitle ">
+				<span>从心推荐</span>
+				<ul>
+					<li><div class="bookMenu">畅销</div></li>
+					<li><div class="bookMenu bookMenuColor">好评</div></li>
+				</ul>
+			</div>
+			<!-- 最外层部分 -->
+			<div id="banner">
+				<div style="width: 1080px;margin: 0 auto;overflow: hidden;">
+					<!-- 轮播部分 -->
+					<ul class="imgList">
+						<!-- 图片部分 -->
+								<li class="box-box"  ng-repeat="x in HighData.aa">
+									<a href="javascript:;">
+										<div>
+											<div class="heart_id" style="display: none;">{{x.heart_book_id}}</div>
+											<div class="bookItem">
+												<img src="http://123.206.43.228/From_the_heart/Uploads/heart_book_img/{{x.heart_book_img}}" alt="puss in boots1" />
+											</div>
+											<h3>《{{x.heart_book_name}}》</h3>
+											<p>--- {{x.heart_bool_author}}</p>
+											<span>{{x.hrart_bool_introduce}}</span>
+										</div>
+									</a>
+								</li>
+								<!--<li class="box-box">
+									<a href="javascript:;">
+										<div>
+											<div class="bookItem"><img src="{{bookstore}}img/book11.png" alt="puss in boots1" /></div>
+											<h3>《壹心理》</h3>
+											<p>--- 壹心理</p>
+											<span>每个人都是一座孤岛</span>
+										</div>
+									</a>
+								</li>
+								<li class="box-box">
+									<a href="javascript:;">
+										<div style="border-right: 1px solid rgba(0,0,0,0)" >
+											<div class="bookItem"><img src="{{bookstore}}img/book12.png" alt="puss in boots1" /></div>
+											<h3>《比恐惧更强烈的情感》</h3>
+											<p>--- 马克·李维</p>
+											<span>缝补内心缺失的疗愈之书</span>
+										</div>
+									</a>
+								</li>
+	
+								<li class="box-box">
+									<a href="javascript:;">
+										<div>
+											<div class="bookItem"><img src="{{bookstore}}img/book1.png" alt="puss in boots1" /></div>
+											<h3>《雅舍谈吃》</h3>
+											<p>--- 梁秋实</p>
+											<span>一起去大饱口福吧！</span>
+										</div>
+									</a>
+								</li>
+								<li class="box-box">
+									<a href="javascript:;">
+										<div>
+											<div class="bookItem"><img src="{{bookstore}}img/book11.png" alt="puss in boots1" /></div>
+											<h3>《壹心理》</h3>
+											<p>--- 壹心理</p>
+											<span>每个人都是一座孤岛</span>
+										</div>
+									</a>
+								</li>
+								<li class="box-box">
+									<a href="javascript:;">
+										<div style="border-right: 1px solid rgba(0,0,0,0)" >
+											<div class="bookItem"><img src="{{bookstore}}img/book12.png" alt="puss in boots1" /></div>
+											<h3>《比恐惧更强烈的情感》</h3>
+											<p>--- 马克·李维</p>
+											<span>缝补内心缺失的疗愈之书</span>
+										</div>
+									</a>
+								</li>
+						
+								<li class="box-box">
+									<a href="javascript:;">
+										<div>
+											<div class="bookItem"><img src="{{bookstore}}img/book1.png" alt="puss in boots1" /></div>
+											<h3>《雅舍谈吃》</h3>
+											<p>--- 梁秋实</p>
+											<span>一起去大饱口福吧！</span>
+										</div>
+									</a>
+								</li>
+								<li class="box-box">
+									<a href="javascript:;">
+										<div>
+											<div class="bookItem"><img src="{{bookstore}}img/book11.png" alt="puss in boots1" /></div>
+											<h3>《壹心理》</h3>
+											<p>--- 壹心理</p>
+											<span>每个人都是一座孤岛</span>
+										</div>
+									</a>
+								</li>
+								<li class="box-box">
+									<a href="javascript:;">
+										<div style="border-right: 1px solid rgba(0,0,0,0)" >
+											<div class="bookItem"><img src="{{bookstore}}img/book12.png" alt="puss in boots1" /></div>
+											<h3>《比恐惧更强烈的情感》</h3>
+											<p>--- 马克·李维</p>
+											<span>缝补内心缺失的疗愈之书</span>
+										</div>
+									</a>
+								</li>-->
+							
+					</ul>
+				</div>
+				<img src="{{bookstore}}img/back.png" width="30px" height="40px" id="prev">
+				<img src="{{bookstore}}img/forward.png" width="30px" height="40px" id="next">
+			</div>
+			
+		</div>
+		<div class="recommended container">
+			<div class="recommendedTitle ">
+				<span>从心书架</span>
+				<ul>
+					<li><div class="bookMenu">更多>></div></li>
+					<li><div class="bookMenu">两性</div></li>
+					<li><div class="bookMenu bookMenuColor">励志</div></li>
+					<li><div class="bookMenu">生活</div></li>
+					<li><div class="bookMenu">情感</div></li>
+				</ul>
+			</div>
+			<ul class="bookshelf">
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book2.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《嗨，好久不见》</h3>
+							<p>---当积极乐观的表达方式完全成为我们的日常习惯后测试测试测试测试测试测试测试测试</p>
+							<span>顾前</span>
+						</div>
+					</a>
+				</li>
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book21.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《少有人走的路》</h3>
+							<p>---人生是一场艰辛之旅，心智成熟的旅程相当漫长测试测试测试测试测试测试测试测试测试</p>
+							<span>M·斯科特·派克</span>
+						</div>
+					</a>
+				</li>
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book22.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《布鲁克林有棵树》</h3>
+							<p>---如果错过了布鲁克林有棵树，你将失去一次重要的人生体验测试测试测试测试测试测试</p>
+							<span>贝蒂·史密斯</span>
+						</div>
+					</a>
+				</li>
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book23.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《相约星期二》</h3>
+							<p>---希望把自己许多年来思考的一些东西传播给更多的人测试测试测试测试测试测试</p>
+							<span>米奇·阿尔博姆 </span>
+						</div>
+					</a>
+				</li>
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book24.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《世界因你不同》</h3>
+							<p>---这是李开复唯一的一本自传，字里行间是岁月流逝中沉淀测试测试测试测试测试测试测试</p>
+							<span>李开复</span>
+						</div>
+					</a>
+				</li>
+				<li class="box-box">
+					<a href="javascript:;">
+						<div class="shelfItem"><img src="{{bookstore}}img/book25.png" alt="puss in boots1" /></div>
+						<div class="bookinfo">
+							<h3>《不抱怨的世界》</h3>
+							<p>---抱怨是最消耗能量的无益举动。试着学习接纳自己测试测试测试测试测试测试测试测试测试测试测试测试测试</p>
+							<span>威尔·鲍温 </span>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="shelfFooter"></div>
+		</div>
+		<div class="recommended container">
+			<div class="recommendedTitle ">
+				<span>其他人在看</span>
+			</div>
+			<!-- 最外层部分 -->
+			<div id="banner">
+				<div style="width: 1080px;margin: 0 auto;overflow: hidden;">
+				<!-- 轮播部分 -->
+				<ul class="imgList2">
+					<!-- 图片部分 -->
+					<li>
+						<ul>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book30.png" alt="puss in boots1" /></div>
+										<h3>《爱的艺术》</h3>
+										<p>---艾·弗洛姆</p>
+										<span>爱是一门艺术</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book31.png" alt="puss in boots1" /></div>
+										<h3>《阿勒泰的角落》</h3>
+										<p>---李娟 </p>
+										<span>关于新疆的美丽文字</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div style="border-right: 1px solid rgba(0,0,0,0)" >
+										<div class="bookItem"><img src="{{bookstore}}img/book32.png" alt="puss in boots1" /></div>
+										<h3>《生活十讲》</h3>
+										<p>---蒋勋 </p>
+										<span>学会停下脚步享受生活</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+						
+					</li>
+					<li>
+						<ul>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book30.png" alt="puss in boots1" /></div>
+										<h3>《爱的艺术》</h3>
+										<p>---艾·弗洛姆</p>
+										<span>爱是一门艺术</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book31.png" alt="puss in boots1" /></div>
+										<h3>《阿勒泰的角落》</h3>
+										<p>---李娟 </p>
+										<span>关于新疆的美丽文字</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div style="border-right: 1px solid rgba(0,0,0,0)" >
+										<div class="bookItem"><img src="{{bookstore}}img/book32.png" alt="puss in boots1" /></div>
+										<h3>《生活十讲》</h3>
+										<p>---蒋勋 </p>
+										<span>学会停下脚步享受生活</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book30.png" alt="puss in boots1" /></div>
+										<h3>《爱的艺术》</h3>
+										<p>---艾·弗洛姆</p>
+										<span>爱是一门艺术</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div>
+										<div class="bookItem"><img src="{{bookstore}}img/book31.png" alt="puss in boots1" /></div>
+										<h3>《阿勒泰的角落》</h3>
+										<p>---李娟 </p>
+										<span>关于新疆的美丽文字</span>
+									</div>
+								</a>
+							</li>
+							<li class="box-box">
+								<a href="javascript:;">
+									<div style="border-right: 1px solid rgba(0,0,0,0)" >
+										<div class="bookItem"><img src="{{bookstore}}img/book32.png" alt="puss in boots1" /></div>
+										<h3>《生活十讲》</h3>
+										<p>---蒋勋 </p>
+										<span>学会停下脚步享受生活</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				</div>
+				<img src="{{bookstore}}img/back.png" width="30px" height="40px" id="prev2">
+				<img src="{{bookstore}}img/forward.png" width="30px" height="40px" id="next2">
+			</div>
+			
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+			var curIndex = 0;
+			var count=0;
+			$("body").on("click","#prev",function(){//根据curIndex进行上一个图片处理    
+				count--;
+				if(count<=0){
+					count=0;
+					changeTo(count);
+				}else{
+					changeTo(count);
+				}
+			}); //右箭头滑入滑出事件处理 
+			
+			$("body").on("click","#next",function() {
+				count++;
+				var imgLi = $(".imgList li").length;
+				if(count === 3){
+					//console.log(count*3);
+					$(".imgList").animate({
+						left: "0px"
+					}, 500);
+				}else{
+					changeTo(count);
+				}
+			});
+			function changeTo(num) {
+				//console.log(num)
+				var goLeft = num * 1080;
+				$(".imgList").animate({
+					left: "-" + goLeft + "px"
+				}, 500);
+			}
+			
+			$("#prev2").click(function() { //根据curIndex进行上一个图片处理    
+				curIndex = (curIndex > 0) ? (--curIndex) : (imgLen - 1);
+				changeTo2(curIndex);
+			}); //右箭头滑入滑出事件处理 
+			
+			$("#next2").click(function() {
+				curIndex = (curIndex < imgLen - 1) ? (++curIndex) : 0;
+				changeTo2(curIndex);
+			});
+			function changeTo2(num) {
+				console.log(num)
+				var goLeft = num * 1080;
+				$(".imgList2").animate({
+					left: "-" + goLeft + "px"
+				}, 500);
+			}
+			
+			//好评，畅销切换
+			$('.bookMenu').on('click',function(){
+				$('.bookMenu').removeClass('bookMenuColor');
+				$(this).addClass('bookMenuColor');
+			})
+			
+			//点击书本跳到详情页
+			$("body").on("click",".box .box-box",function(){
+				var index = $(".box .box-box").index(this);
+				var heart_book_id = $(".heart_id").eq(index).html();
+				sessionStorage.setItem("heart_book_id",heart_book_id);
+				location="../0main/top.html#/bookDetail";
+			})
+		</script>
+</html>

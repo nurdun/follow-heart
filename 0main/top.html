@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/jquery.js" ></script>
+	<script src="http://cdn.bootcss.com/jquery.caroufredsel/6.2.1/jquery.carouFredSel.packed.js" type="text/javascript"></script>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+     <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+	<script src="https://cdn.bootcss.com/seajs/3.0.2/sea.js"></script>
+	<script type="text/javascript" src="../js/ajax.fn.js" ></script>
+	<link rel="stylesheet" href="css/top.css" />
+	<body ng-app='routingDemoApp' ng-controller="myCtrl">
+		<div class="head">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-xs-12 headInfo">
+						<ul class="head-list" >
+							<li>
+								<a href="#" class="head-list-heart"><img src="img/page_02.png"/class="head-list-heart1">
+								<img src="img/page_03.png"/style="display: none;" class="head-list-heart1">
+								<span class="head-list-st1">从心</span></a>
+							</li>
+							<li><a href="#/home" class="click-cover "><span class="head-list-span">首页</span><span class="head-list-spa">HOME</span></a></li>
+							<li><a href="#/re" class="click-cover "><span class="head-list-span">减压</span><span class="head-list-spa">DECOMPRESSION</span></a></li>
+							<li><a href="#/share" class="click-cover"><span class="head-list-span">分享</span><span class="head-list-spa">SHARE</span></a></li>
+							<li><a href="#/bookstore" class="click-cover "><span class="head-list-span">书店</span><span class="head-list-spa">BOOKSTORE</span></a></li>
+							<li class="head-list-5"><a href="#/personal" class="click-cover head-list-hi"><span class="head-list-span">HI,Tenny!</span></a></li>
+							<li class="head-list-6">
+								<a href="#/login" class="click-cover cover6"><span class="head-list-span">登陆 &nbsp;/</span></a>
+								<a href="#/register" class="click-cover cover6"><span class="head-list-span">注册</span></a>
+							</li>
+						<!--	<li class="head-list-7">/<a href="#" class="click-cover cover6"><span class="head-list-span">注册</span></a></li>-->
+						</ul>					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-view></div>
+		<!--底部-->
+		<footer class="foot">
+			<div class="footInfo">
+				<ul id="myTab">
+					<li class="active"><a href="#/aboutUs">关于我们</a></li>
+					<li><a href="#/contactUs">联系我们</a></li>
+					<li><a href="#/secret">隐私保护</a></li>
+					<li><a href="#/friendlyLink">友情链接</a></li>
+				</ul>
+				<p>Copyright&copy;2016从心 设计公司 | 湘公网安备123345678910号</p>
+			</div>
+		</footer>
+	</body>
+
+	<script>
+		//		头部标签显示隐藏
+		$(".head-list-heart").click(function(){
+                $(".head-list-heart1").toggle();
+          });
+        //         头部标签背景图片显示隐藏
+        $(".click-cover").on('click',function(){
+            $('.click-cover').children().css("background", "none");
+            	$(this).children('.head-list-span').css("background", "url(img/page_00.png) no-repeat");           	
+            });
+             $(".head-list-hi").on('click',function(){
+            $('.head-list-hi').children().css("background", "none");
+            	$(this).children('.head-list-span').css("background", "url(img/page_05.png) no-repeat");
+          	    
+            });
+          var app=angular.module('routingDemoApp', ['ngRoute']);
+           app .config(function($routeProvider) {
+			$routeProvider.
+			when('/home', {//首页
+				templateUrl: 'home.html',
+				controller: 'homeCtrl'
+			}).
+			when('/re', {//减压
+				templateUrl: '../2re-pressure/main.html',
+				controller: 'reCtrl'
+			}).
+			when('/read', {//减压-阅读
+				templateUrl: '../2re-pressure/read.html',
+				controller: 'reCtrl'
+			}).
+			when('/travel', {//减压二级页面
+				templateUrl: '../2re-pressure/travel.html',
+				controller: 'reCtrl'
+			}).
+			when('/travelD', {//减压-旅游、游戏
+				templateUrl: '../2re-pressure/travelD.html',
+				controller: 'reCtrl'
+			}).
+			when('/sportD', {//减压-运动、美食
+				templateUrl: '../2re-pressure/sportD.html',
+				controller: 'reCtrl'
+			}).
+			when('/share', {//分享
+				templateUrl: '../3share/soft-class.html',
+				controller: 'shareCtrl'
+			}).
+			when('/bookstore', {//书店
+				templateUrl: '../4bookstore/bookHome.html',
+				controller: 'bookstoreCtrl'
+			}).
+			when('/login', {//登陆
+				templateUrl: '../1login/land.html',
+				controller: 'loginCtrl'
+			}).
+
+            when('/forgetPass', {//注册
+                templateUrl: '../1login/forgetPass.html',
+                controller: 'forgetPassCtr'
+            }).
+            when('/register', {//注册
+                templateUrl: '../1login/register.html',
+                controller: 'registerCtr'
+            }).
+
+			when('/personal', {//个人中心
+				templateUrl: 'Personal Center0.html',
+				controller: 'personalCtrl'
+			}).
+			when('/aboutUs',{//关于我们
+				templateUrl: 'aboutUs.html',
+				controller: 'aboutUsCtrl'
+			}).
+			when('/contactUs',{//联系我们
+				templateUrl: 'contactUs.html',
+				controller: 'contactUsCtrl'
+			}).
+			when('/secret',{//隐私保护
+				templateUrl: 'secret.html',
+				controller: 'secretCtrl'
+			}).
+			when('/friendlyLink',{//友情链接
+				templateUrl: 'friendlyLink.html',
+				controller: 'friendlyLinkCtrl'
+			}).
+			when('/bookDetail',{//书店详情
+				templateUrl:'../4bookstore/bookstore-details.html',
+				controller:'bookDetailCtrl'
+			}).
+			when('/soft',{//软文专题
+				templateUrl:'../3share/soft-project.html',
+				controller:'softCtrl'
+			}).
+			when('/softDetail',{//软文详情
+				templateUrl:'../3share/text_detail.html',
+				controller:'softDetailCtrl'
+			})
+		});
+		app.controller('homeCtrl', function($scope) {
+		})
+		app.controller('reCtrl', function($scope) {
+			$scope.pressure='../2re-pressure/';
+		})
+		app.controller('loginCtrl', function($scope) {
+			$scope.login='../1login/';
+		})
+		app.controller('personalCtrl', function($scope) {
+			$scope.personal='../Personal Center0/';
+		})
+		app.controller('myCtrl', function($scope) {//总控制器
+			//$scope.imgaddr='http://123.206.43.228/From_the_heart/Uploads/heart_book_img/';
+		})
+		app.controller('bookstoreCtrl', function($scope) {
+			function aa(haha){
+				console.log(haha);
+				$scope.HighData=haha;	
+			}
+			setData("High_score",{},aa)
+			$scope.bookstore='../4bookstore/';
+		})
+
+
+		
+	</script>
+	<script src="js/register.js"></script>
+	<script src="js/forgetPass.js"></script>
+	<script src="js/softdetail.js"></script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>启动页</title>
+		<style>
+		body{background-image: url(images/start.png);background-size: cover;}
+		img{margin: 10% auto;display: block;width: 58%;height: 338px;animation: moves 5s;animation-fill-mode: forwards;}
+		@keyframes moves{
+			0%{transform: scale(0.2);}
+			100%{transform: scale(1);}
+		}
+		p{position: fixed;bottom: -25px;left: 47%;font-size: 23px;color: #ffffff;letter-spacing: 3px;animation: movesTop 5s;animation-fill-mode: forwards;}
+		@keyframes movesTop{
+			0%{bottom: -25px;transform: scale(0.2);}
+			100%{bottom: 50px;transform: scale(1);}
+		}
+		</style>
+	</head>
+	<body>
+		<img src="images/heart_03.png" alt="" />
+		<p>我們 ● 從心出發</p>
+		<script>
+			setTimeout(function(){
+				location= "0main/top.html#/home";
+			},3000)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>首页</title>
+	<style>
+	
+		*{
+			padding: 0;
+			margin:0;
+		}
+		body{
+			/*background: #c6c6c6;*/
+			overflow-x: hidden;
+		}
+		.background{
+			width: 100%;
+			margin: auto;
+			background: url(../images/background.jpg);
+		}
+		.carousel {
+			width: 100%;
+			text-align: center; 
+			margin: auto;
+		}
+		.carousel-control {
+			font-size: 100px;
+			line-height:712px;	
+			z-index: 999;
+		}
+		.left{
+			text-align: left;
+		}
+		.right{
+			text-align: right;
+		}
+		ol .active{
+			background: url(../images/banner_select.png) !important;
+			width:20px !important;
+			height:20px !important;
+			background-position: -3px -5px !important;
+		}
+		
+		.item img{
+			width: 100%;
+			height: 712px;
+		}
+		
+		.intro{
+			position: absolute;
+			z-index: 99999;
+			top: 0;
+			width: 100%;
+			height: 5931px;
+			background: rgba(50,50,50,0.5);
+		}
+		.intro div{
+			width: 50%;
+			margin: 720px auto;
+		}
+		.char{
+				position: absolute;
+				z-index:9;
+				top: 0; 
+				width: 55%;
+				height: 420px;
+				margin-left:29% ;
+			}
+			.char div:first-child{
+				width: 770px;
+				height: 350px;
+				margin-top:130px ;
+				margin-left: 2%;
+			}
+			.char div:first-child img{
+				width:700px;
+			}
+			.char div:last-child{
+				width: 700px;
+				margin-top:-240px;
+				padding-left: 13%;
+			}
+			.char div:last-child img{
+				width:95%;
+			}
+		
+		.do-you-know{
+			width:100%;
+			height:650px;
+			background: url(../images/do-u-know_06.png);
+			background-size: 100% 
+		}
+		
+		.dialog1{
+			width: 350px;
+			height: 250px;
+			margin-top:200px ;
+			margin-right: 320px;
+			background: url(../images/dialog1_07.png);
+			background-size:100% ;
+			float: right;
+		}
+		.dialog1 h1{
+			padding-left: 70px;
+		 	color: #1e3227;
+		}
+		
+		.dialog1 span{
+			display: block;
+			margin-left: 100px;
+		}
+		.dialog1 div{
+			width: 60px;
+			height:50px;
+			float: right;
+			margin-right: 80px;
+			margin-top:-20px;
+		}
+		.dialog1 div img{
+			width: 100%;
+			height: 100%;
+		}
+			
+		.dialog2{
+			width:395px;
+			height:245px;
+			background: url(../images/dialog2_07.png);
+			background-size: 100%;
+			margin-left: 350px;
+			position: relative;
+			top: 250px;
+		}
+		.dialog2 h1{
+			padding-left: 70px;
+			padding-top:20px;
+		 	color: #1e3227;
+		}
+		
+		.dialog2 p{
+			margin-left: 100px;		
+			width:200px;
+			height: 100px;
+			word-wrap:break-word;
+			overflow-y: hidden;
+			text-indent: 32px;
+		}
+		.dialog2 div{
+			width: 60px;
+			height:50px;
+			float: right;
+			margin-right: 50px;
+			margin-top:-20px;
+		}
+		.dialog2 div img{
+			width: 100%;
+			height: 100%;
+		}
+		.dialog3{
+			width:425px;
+			height:328px;
+			background: url(../images/dialong3_07.png);
+			background-size:100%;
+		 	margin:-100px auto;
+		 	position: relative;
+		 	left:30px;
+		}
+		.dialog3 h1{
+			padding-left: 80px;
+			padding-top:50px;
+		 	color: #1e3227;
+		}
+		
+		.dialog3 p{
+			margin-left: 100px;			
+			width:200px;
+			height: 120px;
+			word-wrap:break-word;
+			overflow-y: hidden;
+			text-indent: 32px;
+		}
+		.dialog3 div{
+			width: 60px;
+			height:50px;
+			float: right;
+			margin-right: 50px;
+			margin-top:-20px;
+		}
+		.dialog3 div img{
+			width: 100%;
+			height: 100%;
+		}
+		
+		.count{
+			width: 100%;
+			height: 980px;
+			background:url(../images/count_11.png);
+			background-size:100% ;
+		}
+		
+		.left_chart{
+			width: 480px;
+			height: 396px;
+			background:rgba(250,250,250,0.5);
+			position: relative;
+			top: 300px;
+		}
+		.left_chart h4{
+			position: relative;
+			top: 100px;
+			left: 50px;
+		}
+		.left_chart div{
+			float: left;
+		}
+		
+		.count_left_chart{
+			width: 55%;
+			height: 70%;
+			position: relative;
+			top: 100px;
+		}
+		.count_intro_text{
+			padding-left:10px ;
+			position: relative;
+			top: 40%;
+			width: 40%;
+			height:30% ;
+		}
+		.center_chart{
+			width:  675px;
+			height: 446px;
+			background:rgba(250,250,250,0.5);
+			margin: auto;
+			position: relative;
+			top: -120px;
+		}
+		.center_chart div{
+			float: left;
+			width: 48%;
+			height: 100%;
+		}
+		
+		.count_center_chart1 div{
+			width: 100%;
+			height: 80%;
+		}
+		.count_center_chart1 p{
+			width: 100%;
+			height: 20%;
+			text-align: center;
+		}
+		
+		.count_center_chart2 div{
+			width: 100%;
+			height: 80%;
+		}
+		.count_center_chart2 p{
+			width: 100%;
+			height: 20%;
+			text-align: center;
+		}
+		
+		
+		.right_itro{
+			width: 480px;
+			height: 396px;
+			background:rgba(250,250,250,0.5);
+			float: right;
+			margin-top: -540px;
+			padding-left: 50px;
+		}
+		.intro_icon{
+			 width: 80%;
+			 height: 30%;
+			 padding-left: 20px; 
+			 margin-top: 50px;
+		}
+		.intro_icon img{
+			float: left;
+			width: 30%;
+		}
+		.intro_icon div{
+			float: right;
+			width:65%;
+			font-size: 32px;
+		}
+		
+		#intro_text1{
+			width:50%;
+			border: 2px solid;
+			padding-left: 10px;
+		}
+		.intro_text2{
+			 width:40% ;
+			 border: 2px solid;
+			 padding-left: 10px;
+			 margin-top: 20px;
+		}
+		.count_bottom_text{
+			width: 60%; 
+			margin: auto;
+			font-size: 32px;
+			color: #1E3227;
+			position: relative;
+			top: -50px;
+			text-indent: 64px;
+		}
+		
+		.doctor{
+			width: 100%;
+			height: 1125px;
+			background: url(../images/doctur_bg_07.png);
+			background-size:100% ;
+		}
+		.doctor ul{
+			width: 70%;
+			height: 55%;
+			margin: auto;
+			position: relative;
+			top: 25%;
+		}
+		.doctor ul li{
+			list-style: none;
+			width: 28%;
+			height: 100%;
+			float: left;
+			margin-left: 3%;
+			text-align: center;
+			
+		}
+		.doctor ul li h3{
+			margin-top: 100px;color: #5191e9;
+		}
+		.doctor ul li img{
+			width: 292px;
+			height: 292px;
+			margin-top: 30px;
+			margin-left: 5%;
+		}
+		
+		.doctor ul li p{
+			
+			width: 70%;
+			height: 30%;
+			margin:100px auto;
+			text-indent: 32px;
+			word-wrap:break-word;
+			text-align: left;
+		}
+		.re_pressure{
+			 width: 100%;
+			 height: 2355px;
+			 background: url(../images/re_pressure_02.png);
+			 background-size:100% ;
+			 padding-top:12% ;
+		}
+		.re_pressure ul{
+			width: 100%;
+			height: 100%;
+		}
+		.re_pressure ul li{
+			list-style: none;
+			width: 100%;
+			height: 355px;
+		}
+		.re_pressure ul li a{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	
+		
+		
+	/*========================          =================*/
+	
+	@media only screen and (min-width:0px ) and (max-width:1020px){
+		
+			body{
+				width: 1020px;
+				margin: auto;
+			}
+			
+			.carousel-control {
+				line-height:320px;	
+			}
+			.carousel-control img{
+				width: 30%;	
+			}
+			.char{
+				position: absolute;
+				z-index:9;
+				top: 0; 
+				width: 55%;
+				height: 420px;
+				margin-left:29% ;
+			}
+			.char div:first-child{
+				width: 770px;
+				height: 270px;
+				margin-top:70px ;
+				margin-left: 2%;
+			}
+			.char div:first-child img{
+				width:350px;
+			}
+			.char div:last-child{
+				width: 360px;
+				margin-top:-215px;
+				margin-left:-1% ;
+				padding-left: 12%;
+			}
+			.char div:last-child img{
+				width:90%;
+			}
+			.do-you-know{
+				height:350px;
+			}
+			
+			.dialog1{
+				width: 160px;
+				height: 110px;
+				margin-top:130px ;
+				margin-right: 170px;
+			}
+			.dialog1 h1{
+				padding-left: 20px;
+				font-size: 20px;
+			 	color: #1e3227;
+			}
+			
+			.dialog1 span{
+				display: block;
+				font-size:12px;
+				margin-left: 40px;
+			}
+			.dialog1 div{
+				width: 20px;
+				height:20px;
+				float: right;
+				margin-right:20px;
+				margin-top:-40px;
+			}
+				
+			.dialog2{
+				width:180px;
+				height:110px;
+				margin-left: 190px;
+				position: relative;
+				top: 140px;
+			}
+			.dialog2 h1{
+				padding-left: 20px;
+				font-size: 20px;
+			}
+			
+			.dialog2 p{
+				margin-left: 30px;		
+				width:100px;
+				height: 30px;
+				font-size: 12px;
+				text-indent: 24px;
+			}
+			.dialog2 div{
+				width: 20px;
+				height:20px;
+				margin-right: 30px;
+				margin-top:-30px;
+			}
+			.dialog3{
+				width:240px;
+				height:180px;
+				margin:-50px auto;
+				position: relative;
+				left: 20px;
+			}
+			.dialog3 h1{
+				padding-left: 60px;
+				padding-top:12px;
+				font-size:20px ;
+			}
+			
+			.dialog3 p{
+				margin-left: 30px;			
+				width:160px;
+				height: 80px;
+				text-indent: 24px;
+				font-size: 12px;
+			}
+			.dialog3 div{
+				width: 20px;
+				height:20px;
+				float: right;
+				margin-right: 30px;
+				margin-top:-20px;
+			}
+			.dialog3 div img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			.count{
+				width: 100%;
+				height: 550px;
+			}
+			
+			.left_chart{
+				width: 250px;
+				height: 210px;
+				position: relative;
+				top: 150px;
+			}
+			.left_chart h4{
+				position: relative;
+				top: 30px;
+				left: 20px;
+				font-size: 16px;
+			}
+			.count_left_chart{
+				position: relative;
+				top: 50px;
+			}
+			
+			.center_chart{
+				width:  380px;
+				height: 250px;
+				position: relative;
+				top: -80px;
+			}
+			
+			
+			.right_itro{
+				width: 230px;
+				height: 210px;
+				margin-top: -310px;
+				padding-left: 30px;
+			}
+			.intro_icon{
+				 width: 80%;
+				 height: 30%;
+				 padding-left: 10px; 
+				 margin-top: 50px;
+			}
+			.intro_icon img{
+				float: left;
+				width: 30%;
+			}
+			.intro_icon div{
+				float: right;
+				width:65%;
+				font-size: 16px;
+			}
+			
+			.count_bottom_text{
+				font-size: 24px;
+				position: relative;
+				top: -40px;
+				text-indent: 48px;
+			}
+			
+			.doctor{
+				width: 100%;
+				height: 600px;
+			}
+			.doctor ul{
+				width: 70%;
+				height: 55%;
+				margin: auto;
+				position: relative;
+				top: 25%;
+			}
+			.doctor ul li h3{
+				margin-top: 30px;
+			}
+			.doctor ul li img{
+				width: 160px;
+				height: 160px;
+				margin-top: 20px;
+			}
+			
+			.doctor ul li p{
+				margin:50px auto;
+
+			}
+			.re_pressure{
+				 height: 1265px;
+			}
+			.re_pressure ul li{
+				height: 190px;
+			}
+			
+		}
+
+	
+	@media only screen and (min-width: 1020px) and (max-width:1200px) {
+			
+			
+			
+			body{
+				max-width: 1020px;
+				margin: auto;
+			}
+			
+			.carousel-control {
+				line-height:320px;	
+			}
+			.carousel-control img{
+				width: 30%;	
+			}
+			.char{
+				position: absolute;
+				z-index:9;
+				top: 0; 
+				width: 55%;
+				height: 420px;
+				margin-left:29% ;
+			}
+			.char div:first-child{
+				width: 770px;
+				height: 270px;
+				margin-top:70px ;
+				margin-left: 2%;
+			}
+			.char div:first-child img{
+				width:350px;
+			}
+			.char div:last-child{
+				width: 360px;
+				margin-top:-215px;
+				margin-left:-1% ;
+				padding-left: 12%;
+			}
+			.char div:last-child img{
+				width:90%;
+			}
+			.do-you-know{
+				height:350px;
+			}
+			
+			.dialog1{
+				width: 160px;
+				height: 110px;
+				margin-top:130px ;
+				margin-right: 170px;
+			}
+			.dialog1 h1{
+				padding-left: 20px;
+				font-size: 20px;
+			 	color: #1e3227;
+			}
+			
+			.dialog1 span{
+				display: block;
+				font-size:12px;
+				margin-left: 40px;
+			}
+			.dialog1 div{
+				width: 20px;
+				height:20px;
+				float: right;
+				margin-right:20px;
+				margin-top:-40px;
+			}
+				
+			.dialog2{
+				width:180px;
+				height:110px;
+				margin-left: 190px;
+				position: relative;
+				top: 140px;
+			}
+			.dialog2 h1{
+				padding-left: 20px;
+				font-size: 20px;
+			}
+			
+			.dialog2 p{
+				margin-left: 30px;		
+				width:100px;
+				height: 30px;
+				font-size: 12px;
+				text-indent: 24px;
+			}
+			.dialog2 div{
+				width: 20px;
+				height:20px;
+				margin-right: 30px;
+				margin-top:-30px;
+			}
+			.dialog3{
+				width:240px;
+				height:180px;
+				margin:-50px auto;
+				position: relative;
+				left: 20px;
+			}
+			.dialog3 h1{
+				padding-left: 60px;
+				padding-top:12px;
+				font-size:20px ;
+			}
+			
+			.dialog3 p{
+				margin-left: 30px;			
+				width:160px;
+				height: 80px;
+				text-indent: 24px;
+				font-size: 12px;
+			}
+			.dialog3 div{
+				width: 20px;
+				height:20px;
+				float: right;
+				margin-right: 30px;
+				margin-top:-20px;
+			}
+			.dialog3 div img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			.count{
+				width: 100%;
+				height: 550px;
+			}
+			
+			.left_chart{
+				width: 250px;
+				height: 210px;
+				position: relative;
+				top: 150px;
+			}
+			.left_chart h4{
+				position: relative;
+				top: 30px;
+				left: 20px;
+				font-size: 16px;
+			}
+			.count_left_chart{
+				position: relative;
+				top: 50px;
+			}
+			
+			.center_chart{
+				width:  380px;
+				height: 250px;
+				position: relative;
+				top: -80px;
+			}
+			
+			
+			.right_itro{
+				width: 230px;
+				height: 210px;
+				margin-top: -310px;
+				padding-left: 30px;
+			}
+			.intro_icon{
+				 width: 80%;
+				 height: 30%;
+				 padding-left: 10px; 
+				 margin-top: 50px;
+			}
+			.intro_icon img{
+				float: left;
+				width: 30%;
+			}
+			.intro_icon div{
+				float: right;
+				width:65%;
+				font-size: 16px;
+			}
+			
+			.count_bottom_text{
+				font-size: 24px;
+				position: relative;
+				top: -40px;
+				text-indent: 48px;
+			}
+			
+			.doctor{
+				width: 100%;
+				height: 600px;
+			}
+			.doctor ul{
+				width: 70%;
+				height: 55%;
+				margin: auto;
+				position: relative;
+				top: 25%;
+			}
+			.doctor ul li h3{
+				margin-top: 30px;
+			}
+			.doctor ul li img{
+				width: 160px;
+				height: 160px;
+				margin-top: 20px;
+			}
+			
+			.doctor ul li p{
+				margin:50px auto;
+
+			}
+			.re_pressure{
+				 height: 1265px;
+			}
+			.re_pressure ul li{
+				height: 190px;
+			}
+			
+		}
+		
+	
+		
+		@media only screen and (min-width: 1200px) and (max-width:1440px) {
+			
+			body{
+				max-width: 1200px;
+				margin: auto;
+			}
+			
+			.carousel-control {
+				line-height:420px;	
+			}
+			.carousel-control img{
+				width: 40%;	
+			}
+			.char{
+				position: absolute;
+				z-index:9;
+				top: 0; 
+				width: 55%;
+				height: 420px;
+				margin-left:29% ;
+			}
+			.char div:first-child{
+				width: 770px;
+				height: 270px;
+				margin-top:80px ;
+				margin-left: 2%;
+			}
+			.char div:first-child img{
+				width:420px;
+			}
+			.char div:last-child{
+				width: 450px;
+				margin-top:-205px;
+				margin-left:-1% ;
+				padding-left: 12%;
+			}
+			.char div:last-child img{
+				width:90%;
+			}
+			.do-you-know{
+				height:400px;
+			}
+			
+			.dialog1{
+				width: 200px;
+				height: 140px;
+				margin-top:130px ;
+				margin-right: 200px;
+			}
+			.dialog1 h1{
+				padding-left: 30px;
+				font-size: 24px;
+			}
+			
+			.dialog1 span{
+				display: block;
+				font-size:12px;
+				margin-left: 50px;
+			}
+			.dialog1 div{
+				width: 30px;
+				height:30px;
+				float: right;
+				margin-right:30px;
+				margin-top:-20px;
+			}
+				
+			.dialog2{
+				width:230px;
+				height:145px;
+				margin-left: 220px;
+				position: relative;
+				top: 160px;
+			}
+			.dialog2 h1{
+				padding-left: 30px;
+				font-size: 24px;
+			}
+			
+			.dialog2 p{
+				margin-left: 40px;		
+				width:110px;
+				height: 50px;
+				font-size: 12px;
+				text-indent: 24px;
+			}
+			.dialog2 div{
+				width: 30px;
+				height:30px;
+				margin-right: 50px;
+				margin-top:-30px;
+			}
+			.dialog3{
+				width:280px;
+				height:220px;
+				margin:-70px auto;
+			}
+			.dialog3 h1{
+				padding-left: 80px;
+				padding-top:12px;
+				font-size:24px ;
+			}
+			
+			.dialog3 p{
+				margin-left: 40px;			
+				width:180px;
+				height: 100px;
+				text-indent: 24px;
+				font-size: 12px;
+			}
+			.dialog3 div{
+				width: 30px;
+				height:30px;
+				float: right;
+				margin-right: 30px;
+				margin-top:-30px;
+			}
+			.dialog3 div img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			.count{
+				width: 100%;
+				height: 630px;
+			}
+			
+			.left_chart{
+				width: 290px;
+				height: 260px;
+				position: relative;
+				top: 180px;
+			}
+			.left_chart h4{
+				position: relative;
+				top: 50px;
+				left: 20px;
+				font-size: 16px;
+			}
+			.count_left_chart{
+				position: relative;
+				top: 50px;
+			}
+			
+			.center_chart{
+				width:  440px;
+				height: 300px;
+				position: relative;
+				top: -110px;
+			}
+			
+			
+			.right_itro{
+				width: 280px;
+				height: 230px;
+				margin-top: -380px;
+				padding-left: 30px;
+			}
+			.intro_icon{
+				 width: 80%;
+				 height: 30%;
+				 padding-left: 20px; 
+				 margin-top: 50px;
+			}
+			.intro_icon img{
+				float: left;
+				width: 30%;
+			}
+			.intro_icon div{
+				float: right;
+				width:65%;
+				font-size: 20px;
+			}
+			
+			.count_bottom_text{
+				font-size: 24px;
+				position: relative;
+				top: -65px;
+				text-indent: 48px;
+			}
+			
+			.doctor{
+				width: 100%;
+				height: 700px;
+			}
+			.doctor ul{
+				width: 70%;
+				height: 55%;
+				margin: auto;
+				position: relative;
+				top: 25%;
+			}
+			.doctor ul li h3{
+				margin-top: 50px;
+			}
+			.doctor ul li img{
+				width: 180px;
+				height: 180px;
+				margin-top: 20px;
+			}
+			
+			.doctor ul li p{
+				margin:50px auto;
+
+			}
+			.re_pressure{
+				 height: 1495px;
+			}
+			.re_pressure ul li{
+				height: 225px;
+			}
+			
+		}
+		
+		@media only screen and (min-width: 1440px) and (max-width:1680px){
+			
+			body{
+				max-width: 1440px;
+				margin: auto;
+			}
+			
+			.carousel-control {
+				line-height:520px;	
+			}
+			.carousel-control img{
+				width: 45%;	
+			}
+			
+			.char{
+				position: absolute;
+				z-index:9;
+				top: 0; 
+				width: 55%;
+				height: 420px;
+				margin-left:28% ;
+			}
+			.char div:first-child{
+				width: 770px;
+				height: 270px;
+				margin-top:100px ;
+				margin-left: 2%;
+			}
+			.char div:first-child img{
+				width:480px;
+			}
+			.char div:last-child{
+				width: 510px;
+				margin-top:-200px;
+				margin-left:-1% ;
+				padding-left: 12%;
+			}
+			.char div:last-child img{
+				width:95%;
+			}
+			
+			.do-you-know{
+				height:520px;
+			}
+			
+			.dialog1{
+				width: 250px;
+				height: 180px;
+				margin-top:160px ;
+				margin-right: 250px;
+			}
+			.dialog1 h1{
+				padding-left: 50px;
+				font-size: 28px;
+			}
+			
+			.dialog1 span{
+				display: block;
+				font-size:14px;
+				margin-left: 50px;
+			}
+			.dialog1 div{
+				width: 50px;
+				height:40px;
+				float: right;
+				margin-right:40px;
+				margin-top:-20px;
+			}
+				
+			.dialog2{
+				width:280px;
+				height:175px;
+				margin-left: 265px;
+				position: relative;
+				top: 190px;
+			}
+			.dialog2 h1{
+				padding-left: 50px;
+				font-size: 28px;
+			}
+			
+			.dialog2 p{
+				margin-left: 50px;		
+				width:150px;
+				height: 60px;
+				font-size: 16px;
+				text-indent: 32px;
+			}
+			.dialog2 div{
+				width: 50px;
+				height:40px;
+				margin-right: 40px;
+				margin-top:-30px;
+			}
+			.dialog3{
+				width:320px;
+				height:250px;
+				margin:-70px auto;
+				position: relative;
+				left: 20px;
+			}
+			.dialog3 h1{
+				padding-left: 90px;
+				padding-top:30px;
+				font-size:28px ;
+			}
+			
+			.dialog3 p{
+				margin-left: 50px;			
+				width:200px;
+				height: 115px;
+				text-indent: 24px;
+				font-size: 16px;
+			}
+			.dialog3 div{
+				width: 50px;
+				height:40px;
+				float: right;
+				margin-right: 30px;
+				margin-top:-40px;
+			}
+			.dialog3 div img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			.count{
+				width: 100%;
+				height:750px;
+			}
+			
+			.left_chart{
+				width: 370px;
+				height: 310px;
+				position: relative;
+				top: 200px;
+			}
+			.left_chart h4{
+				position: relative;
+				top: 60px;
+				left: 40px;
+				font-size: 16px;
+			}
+			.count_left_chart{
+				position: relative;
+				top: 70px;
+			}
+			
+			.center_chart{
+				width:  520px;
+				height: 350px;
+				position: relative;
+				top: -130px;
+				left: 10px;
+			}
+			
+			
+			.right_itro{
+				width: 350px;
+				height: 310px;
+				margin-top: -450px;
+				padding-left: 50px;
+			}
+			.intro_icon{
+				 width: 80%;
+				 height: 30%;
+				 padding-left: 10px; 
+				 margin-top: 50px;
+			}
+			.intro_icon img{
+				float: left;
+				width: 30%;
+			}
+			.intro_icon div{
+				float: right;
+				width:65%;
+				font-size: 24px;
+			}
+			
+			.count_bottom_text{
+				font-size: 30px;
+				position: relative;
+				top: -70px;
+				text-indent: 60px;
+			}
+			
+			.doctor{
+				width: 100%;
+				height: 850px;
+			}
+			.doctor ul{
+				width: 70%;
+				height: 55%;
+				margin: auto;
+				position: relative;
+				top: 25%;
+			}
+			.doctor ul li h3{
+				margin-top: 70px;
+			}
+			.doctor ul li img{
+				width: 215px;
+				height: 215px;
+				margin-top: 20px;
+			}
+			
+			.doctor ul li p{
+				margin:50px auto;
+
+			}
+			.re_pressure{
+				 height: 1795px;
+			}
+			.re_pressure ul li{
+				height: 270px;
+			}
+			
+		}
+	</style>
+</head>
+<body>
+<div class="intro" >
+			<div >
+				<img class="img" src="../images/tanchu1_07.png" />
+			</div>
+			<script>
+			
+				//判断是否打开过页面
+		
+				var op = localStorage.getItem("open")
+			
+				if(op != null){
+					$(".intro").css({display:"none"})
+					//alert(localStorage.getItem("open"))
+				}
+			
+			</script>
+</div>
+<div class="background">
+	
+	<div id="myCarousel" class="carousel slide" style="">
+		<!-- 轮播（Carousel）指标 -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="img-item active" style="width:20px;height:20px;border:none;background:url(../images/banner_click.png) ;
+				background-position: -3px -5px;"></li>
+			<li data-target="#myCarousel" data-slide-to="1" style="width:20px;height:20px;border:none;background:url(../images/banner_click.png) ;
+				background-position: -3px -5px;"></li>
+			<li data-target="#myCarousel" data-slide-to="2" style="width:20px;height:20px;border:none;background:url(../images/banner_click.png);
+				background-position: -3px -5px;"></li>
+		</ol>   
+		<!-- 轮播（Carousel）项目 -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="../images/img_02.png" alt="First slide">
+			</div>
+			<div class="item" >
+				<img src="../images/img_02.png" alt="Second slide">
+			</div>
+			<div class="item" >
+				<img src="../images/img_02.png" alt="Third slide">
+			</div>
+		</div>
+		<!-- 轮播（Carousel）导航 -->
+		<span class="carousel-control left" data-target="#myCarousel" 
+		   data-slide="prev" ><img src="../images/prev.png"/></span>
+		<span class="carousel-control right" data-target="#myCarousel" 
+		   data-slide="next" ><img src="../images/next.png"/></span>
+	</div>
+	
+	
+		<div class="char" >
+				<div  >
+					<img src="../images/xin-_03.png" />
+				</div>
+				<div >
+					<img src="../images/ziti_03.png" />
+				</div>
+		</div>
+		
+		<div class="do-you-know">
+			<div class="dialog1">
+				<h1 >xxxxxxxx</h1>
+				<span>xxxx</span>
+				<span>xxxx</span>
+				<span>xxxx</span>
+				<div >
+					<img src="../images/more_07.png"/>
+				</div>
+				
+			</div>
+			
+			<div class="dialog2" >
+				<h1 >xxxxxxxx</h1>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+				<div >
+					<img src="../images/more_07.png"/>
+				</div>
+				
+			</div>
+			
+			<div class="dialog3">
+				<h1 >xxxxxxxx</h1>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+				<div >
+					<img src="../images/more_07.png"/>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+		<div class="count">
+			<div class="left_chart">
+				<h4>抑郁症的终生患病率</h4>
+				
+				<div id="leftchart" class="count_left_chart"></div>
+				<div class="count_intro_text">xxxx</div>
+			</div>
+			<div class="center_chart">
+				<div  class="count_center_chart1" >
+					<div  id="center_chart1"></div>
+					<p>xxxxxxxxxxxxxx</p>
+				</div>
+				<div class="count_center_chart1">
+					<div  id="center_chart2"></div>
+					<p>xxxxxxxxxxxxxx</p>
+					
+				</div>
+			
+			</div>
+			<div class="right_itro">
+				<div class="intro_icon">
+					<img src="../images/chart_intro_03.png"/>	
+					<div>xxxxxxxxxxxxxxxx</div>
+				</div>
+				<div id="intro_text1">xxxxx</div>
+				<div class="intro_text2">xxxxx</div>
+			</div>
+			<p class="count_bottom_text">xxxxxxxxxx</p>
+		</div>
+		
+		<div class="doctor" style="">
+			<ul>
+				<li>
+				 <h3>xxx</h3>
+				 <img  class="img-circle" src="../images/ad_yuetu.jpg"/>
+				 <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+					
+				</li>
+				<li>
+					<h3>xxx</h3>
+					 <img  class="img-circle" src="../images/ad_yuetu.jpg"/>
+					 <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+				</li>
+				<li>
+					<h3>xxx</h3>
+					 <img  class="img-circle" src="../images/ad_yuetu.jpg"/>
+					 <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+					
+				</li>
+			</ul>
+			
+		</div>
+		
+		<div class="re_pressure">
+			<ul>
+				<li style="background: url(../images/music_02.png); background-size:100% ;"><a href="../2re-pressure/listen.html"></a></li>
+				<li style="background:url(../images/sport_02.png); background-size:100% ;"><a href="../0main/top.html#/sports"></a></li>
+				<li style="background: url(../images/travel_02.png); background-size:100% ;"><a href="../0main/top.html#/travel"></a></li>
+				<li style="background: url(../images/read_02.png); background-size:100% ;"><a href="../0main/top.html#/read"></a></li>
+				<li style="background: url(../images/delicious_02.png); background-size:100% ;"><a href="../0main/top.html#/game"></a></li>
+				<li style="background: url(../images/game_02.png); background-size:100% ;"><a href="../0main/top.html#/food"></a></li>
+			</ul>
+			
+			
+		</div>
+</div>
+
+
+
+
+
+<script>
+
+
+	$(function(){
+		var t = 0;   //定义一个变量判断点击的次数
+		
+		$(".intro div").on("click",function(){
+			if(t==0){
+				$(this).children("img").attr("src","../images/tanchu2_07.png");
+				t++;
+			}else if(t==1){
+				$(this).children("img").attr("src","../images/tanchu3_07.png");
+				t++;
+			}else if(t==2){
+				$(this).parent().css({display:"none"})
+			}
+			
+			
+		})
+		
+		var leftChart = echarts.init(document.getElementById('leftchart'));
+		
+		var centerChart1 = echarts.init(document.getElementById('center_chart1'));
+		var centerChart2 = echarts.init(document.getElementById('center_chart2'));
+		
+		var option1 = {
+		   title : {
+		       text: '',
+		       x:'center'
+		   },
+		   tooltip : {
+		       trigger: 'item',
+		       formatter: "{a} <br/>{b} : {c} ({d}%)"
+		   },
+		   series : [
+		       {
+		           name: '患病率',
+		           type: 'pie',
+		           radius : '55%',
+		           center: ['50%', '40%'],
+		           data:[
+		               {value:500, name:''},
+		               {value:200, name:''},
+		               {value:100, name:''},
+		           ],
+		           itemStyle: {
+		           normal:{
+		             label:{
+		             show:true,
+		             formatter: '{b} : {c} \n ({d}%)'
+		             }
+		            },
+		               emphasis: {
+		                   shadowBlur: 10,
+		                   shadowOffsetX: 0,
+		                   shadowColor: 'rgba(0, 0, 0, 0.5)'
+		               }
+		           }
+		       }
+		   ],
+		   color: ['rgb(78,122,99)','rgb(45,122,227)','rgb(167,218,191)']
+		};
+		
+		leftChart.setOption(option1);
+		
+		
+		
+		//centerChart1.setOption(option2);
+		
+		var option2 = {
+		   title : {
+		       text: '',
+		       x:'center'
+		   },
+		   tooltip : {
+		       trigger: 'item',
+		       formatter: "{a} <br/>{b} : {c} ({d}%)"
+		   },
+		   series : [
+		       {
+		           name: '患病率',
+		           type: 'pie',
+		           radius : '55%',
+		           center: ['50%', '60%'],
+		           data:[
+		               {value:500, name:''},
+		               {value:100, name:''},
+		           ],
+		           itemStyle: {
+		           normal:{
+		             label:{
+		             show:true,
+		             formatter: '{b} : {c} \n ({d}%)'
+		             }
+		            },
+		               emphasis: {
+		                   shadowBlur: 10,
+		                   shadowOffsetX: 0,
+		                   shadowColor: 'rgba(0, 0, 0, 0.5)'
+		               }
+		           }
+		       }
+		   ],
+		   color: ['rgb(78,122,99)','rgb(45,122,227)']
+		};
+		
+		
+		
+		var option3 = {
+		   title : {
+		       text: '',
+		       x:'center'
+		   },
+		   tooltip : {
+		       trigger: 'item',
+		       formatter: "{a} <br/>{b} : {c} ({d}%)"
+		   },
+		   series : [
+		       {
+		           name: '患病率',
+		           type: 'pie',
+		           radius : '55%',
+		           center: ['50%', '60%'],
+		           data:[
+		               {value:500, name:''},
+		               {value:300, name:''},
+		           ],
+		           itemStyle: {
+		           normal:{
+		             label:{
+		             show:false,
+		             formatter: '{b} : {c} \n ({d}%)'
+		             }
+		            },
+		               emphasis: {
+		                   shadowBlur: 10,
+		                   shadowOffsetX: 0,
+		                   shadowColor: 'rgba(0, 0, 0, 0.5)'
+		               }
+		           }
+		       }
+		   ],
+		   color: ['rgb(78,122,99)','rgb(45,122,227)']
+		};
+		
+		centerChart1.setOption(option2);
+		
+		centerChart2.setOption(option3);
+		
+		
+		//缓存中保存一个变量来确认是否打开过页面
+		
+		op  = 1;
+			
+		localStorage.setItem("open",op)
+		
+		
+	})
+	
+</script>
+</body>
+</html>

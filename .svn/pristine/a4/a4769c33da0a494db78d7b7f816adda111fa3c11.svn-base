@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>footer</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+	<style>
+		*{padding: 0; margin: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+		body{background-image: url(../images/bg.png);background-size: 100% 100%;margin: 0 auto;}
+		.tab-content{width: 41%;margin:54px auto 0 auto;position: relative;}
+		.tab-pane{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+		.tab-pane span{display:block;text-indent: 2em;}
+	</style>
+	<body>
+		<div class="tab-content">
+			<div class="tab-pane active">
+				<h4>友情链接</h4>
+					 <span>
+					 	新年的气息，年俗的乡音，乡情的味道，民俗民风的传承，年文化的延续，传统的接力，
+					 	乡村四野，农家小院，平原旷野，人们已经开始忙活着张罗，扫舍除尘，准备年货，
+					 	喜庆这一年的辛劳， 憧憬对来年的希望，年的味道扑面而来，却早已飞向遥远的故乡故土，
+					 	那里有生你养你的根，有牵挂你的亲人。
+					 </span>
+					 <span>
+					 	一年在外的辛劳，也许你有所收获，也许你也有委屈，也许你也曾有过彷徨和迷茫，
+					 	也许你也曾经有放弃打拼的念头，见到亲人的那一刻，亲人嘘寒问暖刹那，满含热泪，
+					 	才会是你发自内心的真切流露，才感觉有了温馨的归宿，亲人的拥抱，孩子害羞躲避的身影，
+					 	已经似乎陌生、腼腆的观望，妻子娇羞的面容，父母充满泪眼的眼神，也许一下子触动了你感情的神经，
+					 	会让你感到远离亲人养家糊口的无耐、伤感和对父母来不及报恩的愧疚。
+					 </span>
+					 <span>
+					 	有爱，回家的路总不遥远，那就带着好心情，带着期盼，早早回家，去看望久别的亲人，
+					 	挣钱多少不是亲人希望的唯一，那份真挚的一声祝福、平安归来才是亲人的希望和期盼，
+					 	一个电话不是对家人的施舍，一张存折不是对亲人安慰和对自己在外打拼的证明和炫耀，
+					 	回家团聚才是一份最真的情节。
+					 </span>
+					<span> 
+						从心网致力于推广普及心理疾病的相关知识，让大众对心理疾病认识有所提高，防范于未然。
+						从心的力量虽微，但从心坚持呼吁社会对有心理疾病的朋友多一份关爱，少一份拒绝，带上好心情回家。
+					</span>
+			</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				//浏览器时下窗口文档的高度
+				var height = $(document).height();
+				var domHeight = height-244;
+				//alert(domHeight)
+				$(".tab-content").css("height",domHeight+'px');
+			})
+		</script>
+	</body>
+</html>
